@@ -86,7 +86,7 @@ body {
 }
 
 #imagem-capa {
-    background-image: url("/img/pexels-pixabay-208512.jpg");
+    background-image: url("./img/pexels-pixabay-208512.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
