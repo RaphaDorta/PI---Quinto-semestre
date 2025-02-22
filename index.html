@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>PI - 5° Semestre</title>
+
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+
+        <!-- Importação do arquivo JS -->
+        <script src="/js/script.js" defer></script>
+    </head>
+    <body>
+        <header class="cabecalho">
+            <img class="cabecalho-imagem" src="img/logotipo.png" alt="Logotipo da empresa">
+            <nav class="cabecalho-menu">
+                <a class="menu-item" href="#formulario">Contato</a>
+                <a class="menu-item" href="#secundario">Nosso Trabalho</a>
+            </nav>
+            <div class="menu-toggle" id="menu-toggle">
+                <span>☰</span>
+            </div>
+        </header>
+        
+        <main class="conteudo">
+            <section class="principal-box">
+                <div id="imagem-capa">
+                    <p class="principal-texto">Mantenha sua saúde em dia com o VacinApp!</p>
+                </div>
+            </section>
+            
+            <section class="secundario-box" id="secundario">
+                <div class="caixas-secundarias">
+                    <div class="box" id="agilidade">
+                        <h3>Agilidade</h3>
+                        <p>Evite deslocamentos e mantenha sua carteira de vacinação atualizada com informações precisas sobre vacinas e campanhas.</p>
+                    </div>
+                    <div class="box" id="conhecimento">
+                        <h3>Conhecimento</h3>
+                        <p>Consulte informações sobre vacinas aplicadas, benefícios preventivos e detalhes importantes sobre sua saúde.</p>
+                    </div>
+                    <div class="box" id="entrega">
+                        <h3>Entrega</h3>
+                        <p>Acesse as unidades de saúde mais próximas, horários de funcionamento e dados atualizados sobre vacinas disponíveis.</p>
+                    </div>
+                    <div class="box" id="consultas">
+                        <h3>Consultas</h3>
+                        <p>Consultas de vacinas personalizadas para sua faixa etária, ajudando a evitar atrasos e omissões na vacinação.</p>
+                    </div>
+                    <div class="box" id="alertas">
+                        <h3>Alertas</h3>
+                        <p>Receba notificações de surtos de doenças e campanhas de vacinação específicas na sua região para se proteger melhor.</p>
+                    </div>
+                    <div class="box" id="acessibilidade">
+                        <h3>Acessibilidade</h3>
+                        <p>Com suporte multilíngue, o aplicativo se torna acessível a diversos públicos, ampliando a cobertura de vacinação.</p>
+                    </div>
+                </div>
+            </section>
+            
+
+            <div class="descricao-app">
+                <div class="conteudo-box">
+                    <h2>Sobre o "VacinApp"</h2>
+                    <p>O "VacinApp" é uma aplicação desenvolvida para informar e alertar os 
+                        usuários sobre as vacinas recomendadas de acordo com sua faixa etária, 
+                        conforme as diretrizes do Programa Nacional de Imunizações (PNI). O aplicativo 
+                        envia notificações personalizadas para lembrar os usuários das vacinas que 
+                        devem ser administradas, além de fornecer informações detalhadas sobre cada 
+                        vacina, incluindo sua importância, efeitos colaterais e contraindicações. Com um 
+                        recurso de registro do histórico vacinal, os usuários podem acompanhar as 
+                        vacinas que já receberam, facilitando o controle da imunização. O "VacinApp" 
+                        tem como objetivo aumentar a adesão à vacinação e contribuir para a saúde 
+                        pública, sendo uma ferramenta essencial na prevenção de doenças 
+                        imunopreveníveis.</p>
+                </div>
+            </div>
+
+            <!-- Seção de Comentários -->
+            <section class="comentarios" id="comentarios">
+                <h2>O que estão dizendo sobre o VacinApp</h2>
+                <div class="comentarios-container">
+                    <div class="comentario-card">
+                        <h3>Maria Silva</h3>
+                        <p>"O VacinApp é incrível! Me ajuda a manter minha carteira de vacinação em dia e sempre me lembra de quando preciso tomar a próxima vacina!"</p>
+                    </div>
+                    <div class="comentario-card">
+                        <h3>João Souza</h3>
+                        <p>"Excelente aplicativo! Muito fácil de usar e me mantém informado sobre as vacinas que devo tomar. Super recomendaria!"</p>
+                    </div>
+                    <div class="comentario-card">
+                        <h3>Larissa Costa</h3>
+                        <p>"Muito prático e útil, especialmente com os alertas sobre campanhas de vacinação. Recomendo a todos!"</p>
+                    </div>
+                    <div class="comentario-card">
+                        <h3>Felipe Oliveira</h3>
+                        <p>"Adoro o fato de que o VacinApp também me informa sobre os efeitos colaterais das vacinas. Agora me sinto mais seguro!"</p>
+                    </div>
+                </div>
+            </section>
+
+
+            <form class="form" id="formulario">
+                <h1 id="entreEmContato">Entre em contato agora mesmo e conheça nossa equipe.</h1>
+                <div>
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" required />
+                </div>
+                <div>
+                    <label for="mail">E-mail:</label>
+                    <input type="email" id="mail" required />
+                </div>
+                <div>
+                    <label for="msg">Mensagem:</label>
+                    <textarea id="msg" required></textarea>
+                </div>
+                <div class="button-submit">
+                    <button type="submit" id="button-submit">Enviar</button>
+                </div>
+            </form>
+        </main>
+
+        <footer class="rodape">
+            <p>Desenvolvido por Gurpo 03</p>
+            <br>
+            <p>Adauto Dos Santos Ananais - Cítia Barbosa Lucena Gentil - Edgard Henrique Da Silva - Erica de Araújo Macena</p>
+            <p>Raphael Siqueira Dorta - Renan Sergio de Paula - Rodrigo Heerdt - Thiago Diego Duarte de Sousa de Pieri</p>
+        </footer>
+    </body>
+</html>

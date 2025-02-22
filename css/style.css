@@ -1,0 +1,374 @@
+/* Importação de fontes */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+/* Reset e estilos globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Cabeçalho */
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+    background-color: #097A64;
+    color: #fff;
+    align-items: center;
+}
+
+.cabecalho-imagem {
+    width: 200px;
+}
+
+.cabecalho-menu {
+    display: flex;
+    gap: 30px;
+    font-weight: bold;
+}
+
+.menu-item {
+    color: #fff;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.menu-item:hover {
+    color: #f39c12;
+}
+
+/* Menu responsivo */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .cabecalho-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: #097A64;
+        padding: 20px;
+        border-radius: 8px;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .cabecalho-menu.active {
+        display: flex;
+    }
+}
+
+/* Imagem de Capa */
+.principal-box {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#imagem-capa {
+    background-image: url("/img/pexels-pixabay-208512.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.principal-texto {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(9, 82, 100, 0.9);
+    color: #fff;
+    font-size: 3rem;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 80%; /* Garante que o texto não ocupe a tela inteira */
+    text-align: left;
+}
+
+/* Seção secundária */
+.secundario-box {
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+}
+
+.caixas-secundarias {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1200px; /* Limita a largura para telas grandes */
+}
+
+.conteudo-box {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap; /* Garante que os itens se ajustem em telas pequenas */
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    margin-bottom: 30px; /* Adiciona um espaço entre os boxes */
+}
+
+.box:hover {
+    transform: translateY(-10px);
+}
+
+/* Estilo da seção de descrição */
+.descricao-app {
+    padding: 50px 20px;
+    background-color: #fff; /* Fundo branco */
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Leve sombra para dar destaque */
+    opacity: 0; /* Inicialmente invisível */
+    transform: translateY(30px); /* Inicia um pouco abaixo */
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Adiciona a classe 'visible' para animar a entrada */
+.descricao-app.visible {
+    opacity: 1; /* Torna a seção visível */
+    transform: translateY(0); /* Move a seção para a posição original */
+}
+
+/* Estilo do título (h2) */
+.descricao-app h2 {
+    color: #f39c12; /* Cor vibrante para a chamada */
+    font-size: 2.5rem; /* Tamanho maior para chamar atenção */
+    margin-bottom: 20px;
+    font-weight: bold; /* Destacar ainda mais o título */
+    text-transform: uppercase; /* Deixar em maiúsculas */
+    text-align: center; /* Centraliza o título */
+}
+
+/* Estilo do texto (p) */
+.descricao-app p {
+    font-size: 1.2rem;
+    color: #212121; /* Cor escura para o texto */
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto; /* Centraliza o texto */
+    text-align: justify; /* Justifica o texto */
+    margin-top: 20px;
+}
+
+h3 {
+    color: #097A64;
+    margin-bottom: 15px;
+}
+
+/* Seção de Comentários */
+.comentarios {
+    background-color: #f8f9fa;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.comentarios h2 {
+    font-size: 2rem;
+    color: #097A64;
+    margin-bottom: 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.comentarios-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.comentario-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: left;
+}
+
+.comentario-card h3 {
+    color: #27ae60;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.comentario-card p {
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Efeito de hover para os cards */
+.comentario-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .comentarios-container {
+        grid-template-columns: 1fr; /* 1 coluna em telas pequenas */
+    }
+}
+
+/* Estilo para o formulário */
+.form {
+    width: 100%;
+    max-width: 1200px; /* Igual ao tamanho máximo da seção secundária */
+    margin: 50px auto; /* Adiciona margem no topo e no fundo */
+    padding: 40px; /* Ajuste para espaçamento interno */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Título do formulário */
+#entreEmContato {
+    text-align: center;
+    color: #097A64; /* Usando o verde do secundário-box */
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Estilo para os campos de input e textarea */
+.form div {
+    margin-bottom: 20px;
+}
+
+.form label {
+    display: block;
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.form input,
+.form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.form input:focus,
+.form textarea:focus {
+    border-color: #27ae60; /* Foca com o verde do secundário-box */
+    outline: none;
+}
+
+/* Estilo para o botão */
+.button-submit {
+    text-align: center;
+}
+
+.button-submit button {
+    padding: 12px 30px;
+    background-color: #27ae60; /* Cor verde igual ao secundário-box */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button-submit button:hover {
+    background-color: #097A64; /* Verde mais claro para o hover */
+}
+
+/* Rodapé */
+.rodape {
+    background-color: #097A64;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    font-weight: bold;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .cabecalho {
+        flex-direction: column;
+        padding: 20px;
+    }
+    
+    .cabecalho-imagem {
+        width: 220px;
+    }
+
+    .cabecalho-menu {
+        display: block;
+    }
+
+    .conteudo-box {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form {
+        width: 90%;
+    }
+
+    .principal-texto {
+        font-size: 2rem;
+        text-align: center; /* Ajuste para centralizar o texto em dispositivos pequenos */
+    }
+
+    .box {
+        width: 90%; /* Ajuste para garantir que as caixas não ultrapassem a largura da tela */
+    }
+}
+
+/* Responsividade para telas médias (500px - 1451px) */
+@media (min-width: 500px) and (max-width: 1451px) {
+    .principal-texto {
+        font-size: 2.5rem; /* Ajusta o tamanho do texto para telas médias */
+        max-width: 70%; /* Limita a largura do texto */
+    }
+
+    .box {
+        width: 280px; /* Reduz a largura das caixas */
+    }
+}
