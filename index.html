@@ -14,7 +14,7 @@
     </head>
     <body>
         <header class="cabecalho">
-            <img class="cabecalho-imagem" src="img/logotipo.png" alt="Logotipo da empresa">
+           
             <nav class="cabecalho-menu">
                 <a class="menu-item" href="#formulario">Contato</a>
                 <a class="menu-item" href="#secundario">Nosso Trabalho</a>
@@ -24,6 +24,7 @@
             </div>
         </header>
         
+       
         <main class="conteudo">
             <section class="principal-box">
                 <div id="imagem-capa">
@@ -63,7 +64,7 @@
 
             <div class="descricao-app">
                 <div class="conteudo-box">
-                    <h2>Sobre o "VacinApp"</h2>
+                    <h2>Sobre o VacinApp</h2>
                     <p>O "VacinApp" é uma aplicação desenvolvida para informar e alertar os 
                         usuários sobre as vacinas recomendadas de acordo com sua faixa etária, 
                         conforme as diretrizes do Programa Nacional de Imunizações (PNI). O aplicativo 
@@ -100,6 +101,45 @@
                     </div>
                 </div>
             </section>
+
+
+
+
+
+
+
+
+
+
+
+            <section class="consulta-vacinas" id="consulta-vacinas">
+                <div class="consulta-vacinas-box">
+                    <h2>Consulte suas Vacinas</h2>
+                    <form class="form-vacinas" id="form-vacinas">
+                        <div class="campo-form">
+                            <label for="data-nascimento">Data de Nascimento:</label>
+                            <input type="date" id="data-nascimento" required />
+                        </div>
+                        <div class="button-submit">
+                            <button type="submit" id="button-submit">Consultar Vacinas</button>
+                        </div>
+                    </form>
+                    <div id="resultado-vacinas"></div>
+                </div>
+            </section>
+            
+
+
+
+
+
+
+
+
+
+
+
+
 
 
             <form class="form" id="formulario">
