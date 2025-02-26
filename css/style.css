@@ -129,23 +129,30 @@ body {
     transform: translateY(-10px);
 }
 
-/* Estilo da seção de descrição */
 .descricao-app {
     padding: 50px 20px;
-    background-color: #e7edeeb2; /* Fundo branco */
+    background-color: #e7edeeb2;
     text-align: center;
     border-radius: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Leve sombra para dar destaque */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     opacity: 0; /* Inicialmente invisível */
     transform: translateY(30px); /* Inicia um pouco abaixo */
-    transition: opacity 1s ease, transform 1s ease;
     font-family: 'Ubuntu', sans-serif;
 }
 
-/* Adiciona a classe 'visible' para animar a entrada */
 .descricao-app.visible {
-    opacity: 1; /* Torna a seção visível */
-    transform: translateY(0); /* Move a seção para a posição original */
+    animation: fadeIn 1s forwards; /* Animação de fade in */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Estilo do título (h2) */
