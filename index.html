@@ -10,7 +10,7 @@
         <link rel="stylesheet" type="text/css" href="css/style.css">
 
         <!-- Importação do arquivo JS -->
-        <script src="./js/script.js" defer></script>
+        <script src="/js/script.js" defer></script>
     </head>
     <body>
         <header class="cabecalho">
@@ -18,12 +18,12 @@
             <nav class="cabecalho-menu">
                 <a class="menu-item" href="#formulario">Contato</a>
                 <a class="menu-item" href="#secundario">Nosso Trabalho</a>
+                <a class="menu-item" href="#consulta-vacinas">Consulta Vacina</a>
             </nav>
             <div class="menu-toggle" id="menu-toggle">
                 <span>☰</span>
             </div>
         </header>
-        
        
         <main class="conteudo">
             <section class="principal-box">
@@ -60,11 +60,10 @@
                     </div>
                 </div>
             </section>
-            
-
+  
             <div class="descricao-app">
                 <div class="conteudo-box">
-                    <img src="./img/sobre-nos.png" alt="Descrição do VacinApp">
+                    <img src="/img/sobre-nos.png" alt="Descrição do VacinApp">
                 </div>
             </div>
 
@@ -91,16 +90,6 @@
                 </div>
             </section>
 
-
-
-
-
-
-
-
-
-
-
             <section class="consulta-vacinas" id="consulta-vacinas">
                 <div class="consulta-vacinas-box">
                     <h2>Consulte suas Vacinas</h2>
@@ -116,46 +105,24 @@
                     <div id="resultado-vacinas"></div>
                 </div>
             </section>
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <form class="form" id="formulario">
-                <h1 id="entreEmContato">Entre em contato agora mesmo e conheça nossa equipe.</h1>
-                <div>
-                    <label for="name">Nome:</label>
-                    <input type="text" id="name" required />
-                </div>
-                <div>
-                    <label for="mail">E-mail:</label>
-                    <input type="email" id="mail" required />
-                </div>
-                <div>
-                    <label for="msg">Mensagem:</label>
-                    <textarea id="msg" required></textarea>
-                </div>
-                <div class="button-submit">
-                    <button type="submit" id="button-submit">Enviar</button>
-                </div>
-            </form>
+ 
         </main>
 
         <footer class="rodape">
-            <p>Desenvolvido por Gurpo 03</p>
-            <br>
-            <p>Adauto Dos Santos Ananais - Cítia Barbosa Lucena Gentil - Edgard Henrique Da Silva - Erica de Araújo Macena</p>
-            <p>Raphael Siqueira Dorta - Renan Sergio de Paula - Rodrigo Heerdt - Thiago Diego Duarte de Sousa de Pieri</p>
+            <div class="container">
+                <p class="footer-title">Desenvolvido por Grupo 03</p>
+                <div class="team">
+                    <p><a href="https://github.com/RaphaDorta" target="_blank">Adauto dos Santos Ananais</a></p>
+                    <p><a href="https://github.com/ThiagoDuarteDEV" target="_blank">Cítia Barbosa Lucena Gentil</a></p>
+                    <p><a href="https://github.com/rodrigoheerdt" target="_blank">Edgard Henrique Da Silva</a></p>
+                    <p><a href="https://github.com/Renan-De-Paula" target="_blank">Érica de Araújo Macena</a></p>
+                    <p><a href="https://github.com/EricaMacena" target="_blank">Raphael Siqueira Dorta</a></p>
+                    <p><a href="https://github.com/edgardhenriqu" target="_blank">Renan Sérgio de Paula</a></p>
+                    <p><a href="https://github.com/Cih-gentil" target="_blank">Rodrigo Heerdt</a></p>
+                    <p><a href="https://github.com/adautoananias" target="_blank">Thiago Diego Duarte de Sousa de Pieri</a></p>
+                </div>
+            </div>
         </footer>
+        
     </body>
 </html>
