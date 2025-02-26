@@ -57,29 +57,24 @@ body {
 
 /* Imagem de Capa */
 .principal-box {
-    width: 100%;
-    height: 80vh;
+    height: 80vh; /* Mantém a altura em 80vh */
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    overflow: hidden;
+    overflow: hidden; /* Mantém o overflow hidden */
 }
 
 #imagem-capa {
     background-image: url("../img/capa-vacina.png");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; /* Mantém o background-size cover */
     background-position: center;
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
-}
-
-.principal-texto {
-    display: none; /* Removido, já que não queremos exibir o texto */
 }
 
 /* Seção secundária */
