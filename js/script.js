@@ -45,12 +45,14 @@ document.addEventListener('DOMContentLoaded', function() {
     function isElementInView(element) {
         if (!element) return false; // Check if the element exists
         const rect = element.getBoundingClientRect();
-        return (
+        const isInView = (
             rect.top >= 0 &&
             rect.left >= 0 &&
             rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
             rect.right <= (window.innerWidth || document.documentElement.clientWidth)
         );
+        console.log('Element in view:', isInView, rect); // Adicione este log
+        return isInView;
     }
 
     // Throttling function
@@ -74,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function handleScroll() {
         if (descricaoApp && isElementInView(descricaoApp)) {
             descricaoApp.classList.add('visible'); // Adiciona a classe para mostrar a seção
-            window.removeEventListener('scroll', throttledScroll); // Remove listener after it becomes visible once to avoid performance hit
+            window.removeEventListener('scroll', handleScroll); // Remove listener after it becomes visible once to avoid performance hit
         }
     }
 
@@ -82,8 +84,9 @@ document.addEventListener('DOMContentLoaded', function() {
     handleScroll();
 
     // Adiciona um evento de rolagem para verificar a visibilidade da seção
-    const throttledScroll = throttle(handleScroll, 200);
-    window.addEventListener('scroll', throttledScroll);
+    // const throttledScroll = throttle(handleScroll, 200);
+    // window.addEventListener('scroll', throttledScroll);
+    window.addEventListener('scroll', handleScroll);
 
 
     // Função de redirecionamento para página de mais informações
