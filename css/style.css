@@ -36,7 +36,6 @@ body {
     font-weight: bold;
 }
 
-
 .menu-item {
     color: #fff;
     font-size: 18px;
@@ -55,28 +54,6 @@ body {
     cursor: pointer;
     color: #fff;
 }
-
-@media (max-width: 768px) {
-    .cabecalho-menu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 20px;
-        background-color: #097A64;
-        padding: 20px;
-        border-radius: 8px;
-    }
-    
-    .menu-toggle {
-        display: block;
-    }
-    
-    .cabecalho-menu.active {
-        display: flex;
-    }
-}
-
 
 /* Imagem de Capa */
 .principal-box {
@@ -100,13 +77,6 @@ body {
     left: 0;
 }
 
-@media (max-width: 768px) {
-    .principal-box {
-        height: 60vh; /* Reduz a altura em telas menores */
-    } }
-
-
-/* Removido o estilo da .principal-texto */
 .principal-texto {
     display: none; /* Removido, já que não queremos exibir o texto */
 }
@@ -255,13 +225,6 @@ h3 {
     transform: translateY(-10px);
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    .comentarios-container {
-        grid-template-columns: 1fr; /* 1 coluna em telas pequenas */
-    }
-}
-
 /* Estilo para o formulário */
 .consulta-vacinas {
     display: grid;
@@ -285,7 +248,7 @@ h3 {
 }
 
 .consulta-vacinas h2 {
-    color: #097A64;  /* Usando o verde do formulário */
+    color: #0074d5;;  
     font-size: 2rem;
     text-align: center;
     margin-bottom: 20px;
@@ -335,21 +298,6 @@ h3 {
     background-color: #0078D4; /* Cor mais escura no hover */
 }
 
-/* Responsividade para telas menores */
-@media (max-width: 900px) {
-    .consulta-vacinas {
-        grid-template-columns: 1fr; /* Garantir uma coluna em telas médias */
-    }
-}
-
-@media (max-width: 600px) {
-    .consulta-vacinas {
-        grid-template-columns: 1fr; /* Garantir uma coluna em telas pequenas */
-    }
-}
-
-
-
 /* Rodapé */
 .rodape {
     background-color: #0075D4; /* Cor de fundo */
@@ -397,29 +345,92 @@ h3 {
     color: #f39c12; /* Cor dourada ao passar o mouse */
 }
 
+/* Mudar a cor do texto dentro das caixas */
+.box h3,
+.box p {
+    color: #0074d5;  /* Cor mais escura */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Georgia, serif;/* Fonte para todos os títulos */
+}
+
+/* Estilo para o texto dentro das caixas (agilidade, conhecimento, Disponibilidade..) */
+.box p {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 0.9rem;  /* Ajuste o tamanho da fonte se necessário */
+    color: #2e3030;  /* Cor do texto, pode ajustar conforme necessário */
+}
+
+.descricao-app {
+    display: flex;
+    justify-content: center;  /* Centraliza horizontalmente */
+    align-items: center;  /* Centraliza verticalmente */
+    text-align: center;  /* Garante alinhamento */
+    padding: 20px;
+}
+
+/* MEDIA QUERIES */
+
+/* Menu responsivo */
 @media (max-width: 768px) {
-    .rodape .team {
+    .cabecalho-menu {
+        display: none;
         flex-direction: column;
-        align-items: center;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: #097A64;
+        padding: 20px;
+        border-radius: 8px;
     }
     
-    .rodape .team p {
-        margin-bottom: 10px;
+    .menu-toggle {
+        display: block;
+    }
+    
+    .cabecalho-menu.active {
+        display: flex;
     }
 }
 
-
 @media (max-width: 768px) {
-    .rodape .team {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .rodape .team p {
-        margin-bottom: 10px;
+    .principal-box {
+        height: 60vh; /* Reduz a altura em telas menores */
     }
 }
+
 /* Responsividade */
+@media (max-width: 768px) {
+    .comentarios-container {
+        grid-template-columns: 1fr; /* 1 coluna em telas pequenas */
+    }
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 900px) {
+    .consulta-vacinas {
+        grid-template-columns: 1fr; /* Garantir uma coluna em telas médias */
+    }
+}
+
+@media (max-width: 600px) {
+    .consulta-vacinas {
+        grid-template-columns: 1fr; /* Garantir uma coluna em telas pequenas */
+    }
+}
+
+@media (max-width: 768px) {
+    .rodape .team {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .rodape .team p {
+        margin-bottom: 10px;
+    }
+}
+
 @media (max-width: 600px) {
     .cabecalho {
         flex-direction: column;
@@ -463,69 +474,6 @@ h3 {
     .box {
         width: 280px; /* Reduz a largura das caixas */
     }
-}
-
-/* Estilos para a seção de consulta de vacinas */
-.consulta-vacinas {
-    background-color: #f9f9f9;  /* Cor de fundo suave */
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-}
-
-.consulta-vacinas-box {
-    background-color: #fff; /* Cor de fundo branca */
-    padding: 20px;
-    border-radius: 8px; /* Bordas arredondadas */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombras suaves */
-    max-width: 500px; /* Largura máxima */
-    width: 100%;
-}
-
-.consulta-vacinas h2 {
-    color: #0074d5;
-    font-size: 2rem;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Estilo para os resultados das vacinas */
-#resultado-vacinas {
-    margin-top: 20px;
-    text-align: center;
-    font-size: 18px;
-}
-
-/* Mudar a cor do texto dentro das caixas */
-.box h3,
-.box p {
-    color: #0074d5;  /* Cor mais escura */
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: Georgia, serif;/* Fonte para todos os títulos */
-}
-
-/* Estilo para o texto dentro das caixas (agilidade, conhecimento, Disponibilidade..) */
-.box p {
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 0.9rem;  /* Ajuste o tamanho da fonte se necessário */
-    color: #2e3030;  /* Cor do texto, pode ajustar conforme necessário */
-}
-
-.descricao-app {
-    display: flex;
-    justify-content: center;  /* Centraliza horizontalmente */
-    align-items: center;  /* Centraliza verticalmente */
-    text-align: center;  /* Garante alinhamento */
-    padding: 20px;
-}
-
-.conteudo-box img {
-    max-width: 100%;  /* Garante que a imagem não ultrapasse os limites do container */
-    height: auto;  /* Mantém a proporção da imagem */
-    border-radius: 10px;  /* Adiciona cantos arredondados (opcional) */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);  /* Adiciona sombra leve (opcional) */
 }
 
 @media (max-width: 768px) {
