@@ -404,44 +404,6 @@ h3 {
     margin-bottom: 20px;
 }
 
-.campo-form {
-    margin-bottom: 15px;
-}
-
-.campo-form label {
-    display: block;
-    font-size: 16px;
-    margin-bottom: 5px;
-}
-
-.campo-form input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-}
-
-.button-submit {
-    display: flex;
-    justify-content: center;
-}
-
-.button-submit button {
-    background-color: #DA4C4C;  /* Usando a cor primária */
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.button-submit button:hover {
-    background-color: #e83c3c; /* Cor mais escura no hover */
-}
-
 /* Estilo para os resultados das vacinas */
 #resultado-vacinas {
     margin-top: 20px;
