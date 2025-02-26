@@ -255,6 +255,32 @@ h3 {
     }
 }
 
+/* Estilo para o formulário */
+.consulta-vacinas {
+    background-color: #f9f9f9;  /* Cor de fundo suave */
+    padding: 40px;  /* Aumentado para combinar com o padding do outro formulário */
+    display: flex;
+    justify-content: center;
+    margin: 50px auto;  /* Adicionando margem igual ao layout do outro formulário */
+    max-width: 1200px;  /* Igualando ao tamanho máximo do formulário */
+    width: 100%;
+}
+
+.consulta-vacinas-box {
+    background-color: #fff; /* Cor de fundo branca */
+    padding: 40px; /* Ajuste para o espaçamento interno */
+    border-radius: 10px; /* Bordas arredondadas iguais */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombras mais suaves */
+    width: 100%;
+}
+
+.consulta-vacinas h2 {
+    color: #097A64;  /* Usando o verde do formulário */
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 .campo-form {
     margin-bottom: 20px;  /* Aumentado para ser igual ao outro formulário */
 }
@@ -354,27 +380,25 @@ h3 {
     }
 }
 
-/* Estilo para o formulário */
+/* Estilos para a seção de consulta de vacinas */
 .consulta-vacinas {
     background-color: #f9f9f9;  /* Cor de fundo suave */
-    padding: 40px;  /* Aumentado para combinar com o padding do outro formulário */
+    padding: 20px;
     display: flex;
     justify-content: center;
-    margin: 50px auto;  /* Adicionando margem igual ao layout do outro formulário */
-    max-width: 1200px;  /* Igualando ao tamanho máximo do formulário */
-    width: 100%;
 }
 
 .consulta-vacinas-box {
     background-color: #fff; /* Cor de fundo branca */
-    padding: 40px; /* Ajuste para o espaçamento interno */
-    border-radius: 10px; /* Bordas arredondadas iguais */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombras mais suaves */
+    padding: 20px;
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombras suaves */
+    max-width: 500px; /* Largura máxima */
     width: 100%;
 }
 
 .consulta-vacinas h2 {
-    color: #097A64;  /* Usando o verde do formulário */
+    color: #0074d5;
     font-size: 2rem;
     text-align: center;
     margin-bottom: 20px;
@@ -424,4 +448,3 @@ h1, h2, h3, h4, h5, h6 {
         width: 90%;  /* Ajusta a largura da imagem para dispositivos menores */
     }
 }
-
