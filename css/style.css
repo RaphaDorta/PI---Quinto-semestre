@@ -231,16 +231,16 @@ h3 {
 
 .comentario-card h3 {
     font-family: 'Ubuntu', sans-serif;
-    color: #2e3030
+    color: #0074d5;
     font-size: 1.2rem;
     margin-bottom: 10px;
     font-weight: bold;
 }
 
 .comentario-card p {
-    color: #333;
-    font-size: 1rem;
-    line-height: 1.6;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 0.9rem;
+    color: #2e3030;
 }
 
 /* Efeito de hover para os cards */
@@ -257,21 +257,24 @@ h3 {
 
 /* Estilo para o formulário */
 .consulta-vacinas {
-    background-color: #f9f9f9;  /* Cor de fundo suave */
-    padding: 40px;  /* Aumentado para combinar com o padding do outro formulário */
-    display: flex;
-    justify-content: center;
-    margin: 50px auto;  /* Adicionando margem igual ao layout do outro formulário */
-    max-width: 1200px;  /* Igualando ao tamanho máximo do formulário */
+    display: grid;
+    grid-template-columns: 1fr; /* Apenas uma coluna */
+    gap: 30px;  /* Espaçamento entre os itens */
+    padding: 50px 0;  /* Padding semelhante ao do outro layout */
+    justify-items: center; /* Centraliza os itens */
     width: 100%;
+    max-width: 1200px;  /* Garante que o conteúdo não ultrapasse 1200px */
+    margin: 0 auto;  /* Centraliza o conteúdo na tela */
 }
 
 .consulta-vacinas-box {
     background-color: #fff; /* Cor de fundo branca */
     padding: 40px; /* Ajuste para o espaçamento interno */
-    border-radius: 10px; /* Bordas arredondadas iguais */
+    border-radius: 10px; /* Bordas arredondadas */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombras mais suaves */
     width: 100%;
+    max-width: 100%; /* Garante que ocupe 100% da largura da célula */
+    box-sizing: border-box; /* Faz com que o padding seja considerado na largura total */
 }
 
 .consulta-vacinas h2 {
@@ -312,7 +315,7 @@ h3 {
 
 .button-submit button {
     padding: 12px 30px;
-    background-color: #27ae60; /* Cor verde igual ao do formulário */
+    background-color: #00C2BB; /* Cor verde igual ao do formulário */
     color: white;
     border: none;
     border-radius: 6px;
@@ -322,18 +325,93 @@ h3 {
 }
 
 .button-submit button:hover {
-    background-color: #097A64; /* Cor mais escura no hover */
+    background-color: #0078D4; /* Cor mais escura no hover */
 }
+
+/* Responsividade para telas menores */
+@media (max-width: 900px) {
+    .consulta-vacinas {
+        grid-template-columns: 1fr; /* Garantir uma coluna em telas médias */
+    }
+}
+
+@media (max-width: 600px) {
+    .consulta-vacinas {
+        grid-template-columns: 1fr; /* Garantir uma coluna em telas pequenas */
+    }
+}
+
+
 
 /* Rodapé */
 .rodape {
-    background-color: #097A64;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-    font-weight: bold;
+    background-color: #0075D4; /* Cor de fundo */
+    color: #fff; /* Cor do texto */
+    text-align: center; /* Centraliza o texto */
+    padding: 30px 20px; /* Maior espaçamento para dar um visual mais clean */
+    font-family: 'Arial', sans-serif; /* Fonte legível */
 }
 
+.rodape .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.rodape .footer-title {
+    font-size: 1.1rem; /* Tamanho da fonte reduzido */
+    margin-bottom: 15px;
+    font-weight: normal; /* Remove o negrito */
+}
+
+.rodape .team {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    font-size: 0.9rem; /* Tamanho da fonte mais suave */
+    font-weight: normal; /* Remove o negrito */
+}
+
+.rodape .team p {
+    margin: 0;
+    padding: 0;
+    max-width: 250px;
+}
+
+/* Estilos para os links */
+.rodape a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.rodape a:hover {
+    color: #f39c12; /* Cor dourada ao passar o mouse */
+}
+
+@media (max-width: 768px) {
+    .rodape .team {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .rodape .team p {
+        margin-bottom: 10px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .rodape .team {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .rodape .team p {
+        margin-bottom: 10px;
+    }
+}
 /* Responsividade */
 @media (max-width: 600px) {
     .cabecalho {
