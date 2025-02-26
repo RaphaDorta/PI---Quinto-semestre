@@ -48,8 +48,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
         const windowWidth = (window.innerWidth || document.documentElement.clientWidth);
 
-        const vertInView = (rect.top <= windowHeight) && ((rect.top + rect.height) >= 0);
-        const horInView = (rect.left <= windowWidth) && ((rect.left + rect.width) >= 0);
+        // Modifique as condições para verificar se *qualquer parte* do elemento está visível
+        const vertInView = (rect.top <= windowHeight) && (rect.bottom >= 0);
+        const horInView = (rect.left <= windowWidth) && (rect.right >= 0);
 
         const isInView = (vertInView && horInView);
 
