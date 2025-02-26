@@ -43,30 +43,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Função para verificar se o elemento está visível na tela
     function isElementInView(element) {
-        if (!element) return false; // Check if the element exists
+        if (!element) return false;
         const rect = element.getBoundingClientRect();
-        const isInView = (
-            rect.top >= 0 &&
-            rect.left >= 0 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-        );
+        const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
+        const windowWidth = (window.innerWidth || document.documentElement.clientWidth);
+
+        const vertInView = (rect.top <= windowHeight) && ((rect.top + rect.height) >= 0);
+        const horInView = (rect.left <= windowWidth) && ((rect.left + rect.width) >= 0);
+
+        const isInView = (vertInView && horInView);
+
         console.log('Element in view:', isInView, rect); // Adicione este log
         return isInView;
-    }
-
-    // Throttling function
-    function throttle(func, limit) {
-        let inThrottle;
-        return function() {
-            const args = arguments;
-            const context = this;
-            if (!inThrottle) {
-                func.apply(context, args);
-                inThrottle = true;
-                setTimeout(() => inThrottle = false, limit);
-            }
-        }
     }
 
 
@@ -74,9 +62,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const descricaoApp = document.querySelector('.descricao-app');
 
     function handleScroll() {
-        if (descricaoApp && isElementInView(descricaoApp)) {
-            descricaoApp.classList.add('visible'); // Adiciona a classe para mostrar a seção
-            window.removeEventListener('scroll', handleScroll); // Remove listener after it becomes visible once to avoid performance hit
+        if (descricaoApp) { // Verifica se o elemento existe
+            if (isElementInView(descricaoApp)) {
+                descricaoApp.classList.add('visible'); // Adiciona a classe para mostrar a seção
+                window.removeEventListener('scroll', handleScroll); // Remove listener after it becomes visible once to avoid performance hit
+            }
         }
     }
 
@@ -84,8 +74,6 @@ document.addEventListener('DOMContentLoaded', function() {
     handleScroll();
 
     // Adiciona um evento de rolagem para verificar a visibilidade da seção
-    // const throttledScroll = throttle(handleScroll, 200);
-    // window.addEventListener('scroll', throttledScroll);
     window.addEventListener('scroll', handleScroll);
 
 
