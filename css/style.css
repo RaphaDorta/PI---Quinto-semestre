@@ -21,7 +21,7 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 20px 50px;
-    background-color: #5084a7;
+    background-color: #00B9BE;
     color: #fff;
     align-items: center;
 }
@@ -206,7 +206,7 @@ h3 {
 
 .comentarios h2 {
     font-size: 2rem;
-    color: #097A64;
+    color: #0074d5;
     margin-bottom: 40px;
     font-weight: bold;
     text-transform: uppercase;
@@ -230,7 +230,8 @@ h3 {
 }
 
 .comentario-card h3 {
-    color: #27ae60;
+    font-family: 'Ubuntu', sans-serif;
+    color: #2e3030
     font-size: 1.2rem;
     margin-bottom: 10px;
     font-weight: bold;
@@ -255,38 +256,43 @@ h3 {
 }
 
 /* Estilo para o formulário */
-.form {
+.consulta-vacinas {
+    background-color: #f9f9f9;  /* Cor de fundo suave */
+    padding: 40px;  /* Aumentado para combinar com o padding do outro formulário */
+    display: flex;
+    justify-content: center;
+    margin: 50px auto;  /* Adicionando margem igual ao layout do outro formulário */
+    max-width: 1200px;  /* Igualando ao tamanho máximo do formulário */
     width: 100%;
-    max-width: 1200px; /* Igual ao tamanho máximo da seção secundária */
-    margin: 50px auto; /* Adiciona margem no topo e no fundo */
-    padding: 40px; /* Ajuste para espaçamento interno */
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Título do formulário */
-#entreEmContato {
-    text-align: center;
-    color: #097A64; /* Usando o verde do secundário-box */
+.consulta-vacinas-box {
+    background-color: #fff; /* Cor de fundo branca */
+    padding: 40px; /* Ajuste para o espaçamento interno */
+    border-radius: 10px; /* Bordas arredondadas iguais */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombras mais suaves */
+    width: 100%;
+}
+
+.consulta-vacinas h2 {
+    color: #097A64;  /* Usando o verde do formulário */
     font-size: 2rem;
+    text-align: center;
     margin-bottom: 20px;
 }
 
-/* Estilo para os campos de input e textarea */
-.form div {
-    margin-bottom: 20px;
+.campo-form {
+    margin-bottom: 20px;  /* Aumentado para ser igual ao outro formulário */
 }
 
-.form label {
+.campo-form label {
     display: block;
     font-size: 1.1rem;
     color: #333;
     margin-bottom: 8px;
 }
 
-.form input,
-.form textarea {
+.campo-form input {
     width: 100%;
     padding: 12px;
     border: 1px solid #ddd;
@@ -295,20 +301,18 @@ h3 {
     color: #333;
 }
 
-.form input:focus,
-.form textarea:focus {
-    border-color: #27ae60; /* Foca com o verde do secundário-box */
+.campo-form input:focus {
+    border-color: #27ae60;  /* Cor de foco igual ao formulário */
     outline: none;
 }
 
-/* Estilo para o botão */
 .button-submit {
     text-align: center;
 }
 
 .button-submit button {
     padding: 12px 30px;
-    background-color: #27ae60; /* Cor verde igual ao secundário-box */
+    background-color: #27ae60; /* Cor verde igual ao do formulário */
     color: white;
     border: none;
     border-radius: 6px;
@@ -318,7 +322,7 @@ h3 {
 }
 
 .button-submit button:hover {
-    background-color: #097A64; /* Verde mais claro para o hover */
+    background-color: #097A64; /* Cor mais escura no hover */
 }
 
 /* Rodapé */
@@ -394,8 +398,9 @@ h3 {
 }
 
 .consulta-vacinas h2 {
+    color: #0074d5;
+    font-size: 2rem;
     text-align: center;
-    font-size: 24px;
     margin-bottom: 20px;
 }
 
