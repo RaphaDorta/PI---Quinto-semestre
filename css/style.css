@@ -135,6 +135,13 @@ body {
     flex-wrap: wrap; /* Garante que os itens se ajustem em telas pequenas */
 }
 
+.conteudo-box img {
+    max-width: 100%;  /* Garante que a imagem não ultrapasse os limites do container */
+    height: auto;  /* Mantém a proporção da imagem */
+    border-radius: 10px;  /* Adiciona cantos arredondados (opcional) */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);  /* Adiciona sombra leve (opcional) */
+}
+
 .box {
     display: flex;
     flex-direction: column;
