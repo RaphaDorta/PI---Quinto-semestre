@@ -1,14 +1,14 @@
 # ANÁLISE DE SOLUÇÕES INTEGRADAS PARA ORGANIZAÇÕES
 
 # INTEGRANTES
-  ## Adauto dos Santos Ananias
-  ##Cíntia Barbosa Lucena Gentil
-  ##Edgard Henrique da Silva 
-  ##Érica de Araújo Macena
-  ##Raphael Siqueira Dorta
-  ##Renan Sérgio de Paula
-  ##Rodrigo Heerdt
-  ##Thiago Diego Duarte de Sousa de Pieri
+  Adauto dos Santos Ananias
+  Cíntia Barbosa Lucena Gentil
+  Edgard Henrique da Silva 
+  Érica de Araújo Macena
+  Raphael Siqueira Dorta
+  Renan Sérgio de Paula
+  Rodrigo Heerdt
+  Thiago Diego Duarte de Sousa de Pieri
   
 
  # Objetivo
