@@ -1,4 +1,4 @@
-ackage com.senac.pi.vacinaApp.service;
+package com.senac.pi.vacinaApp.service;
 
 import com.senac.pi.vacinaApp.entity.Vacina; // Importa a entidade Vacina
 import com.senac.pi.vacinaApp.repository.VacinaRepository; // Importa o repositório VacinaRepository
