@@ -87,29 +87,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    const tooltips = document.querySelectorAll(".tooltip");
-
-    tooltips.forEach(tooltip => {
-        tooltip.addEventListener("mouseenter", function () {
-            let tooltipText = tooltip.getAttribute("data-tooltip");
-            let tooltipBox = document.createElement("div");
-            tooltipBox.classList.add("tooltip-box");
-            tooltipBox.innerText = tooltipText;
-            document.body.appendChild(tooltipBox);
-
-            let rect = tooltip.getBoundingClientRect();
-            let scrollTop = window.scrollY || document.documentElement.scrollTop;
-
-            tooltipBox.style.top = `${rect.top + scrollTop - tooltipBox.offsetHeight - 10}px`;
-            tooltipBox.style.left = `${rect.left + rect.width / 2 - tooltipBox.offsetWidth / 2}px`;
-
-            tooltipBox.classList.add("show");
-
-            tooltip.addEventListener("mouseleave", function () {
-                tooltipBox.remove();
-            });
-        });
-    });
-});
 
