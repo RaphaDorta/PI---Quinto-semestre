@@ -14,6 +14,8 @@ body {
     font-family: 'Josefin Sans', sans-serif;
     background-color: #f8f9fa;
     color: #333;
+    font-family: Arial, sans-serif;
+    text-align: center;
 }
 
 /* Cabeçalho */
@@ -388,6 +390,38 @@ h1, h2, h3, h4, h5, h6 {
     color: gold; /* Deixa as estrelas douradas */
     margin: 5px 0;
 }
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Caixa de texto do tooltip */
+.tooltip-box {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 220px;
+    text-align: center;
+    white-space: normal;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 10;
+}
+
+/* Mostra a tooltip quando necessário */
+.tooltip-box.show {
+    opacity: 1;
+    visibility: visible;
+}
+
 
 /* MEDIA QUERIES */
 
