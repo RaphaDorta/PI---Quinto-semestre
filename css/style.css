@@ -180,52 +180,83 @@ h3 {
 /* Seção de Comentários */
 .comentarios {
     background-color: #f8f9fa;
-    padding: 40px 20px;
+    padding: 60px 20px;
     text-align: center;
 }
 
 .comentarios h2 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: #0074d5;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
     font-weight: bold;
     text-transform: uppercase;
 }
 
 .comentarios-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 colunas */
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas por linha */
+    gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
+/* Card de Avaliação */
 .comentario-card {
     background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    text-align: left;
-}
-
-.comentario-card h3 {
-    font-family: 'Ubuntu', sans-serif;
-    color: #0074d5;
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-.comentario-card p {
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 0.9rem;
-    color: #2e3030;
+    padding: 30px;
+    border-radius: 20px; /* Bordas arredondadas */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #e0e0e0; /* Borda suave para definição do card */
+    height: 100%; /* Garantir que o card tenha uma altura consistente */
 }
 
 /* Efeito de hover para os cards */
 .comentario-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-8px); /* Elevação do card */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* Aumento da sombra no hover */
+}
+
+/* Foto do usuário */
+.comentario-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #0074d5; /* Borda azul na foto */
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+/* Nome do usuário */
+.comentario-card h3 {
+    font-family: 'Ubuntu', sans-serif;
+    color: #0074d5;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 110px; /* Ajuste para o nome não sobrepor a foto */
+}
+
+/* Avaliação (Estrelas) */
+.comentario-card .avaliacao {
+    font-size: 1.5rem;
+    color: #ffcc00; /* Estrelas douradas */
+    margin-top: 10px;
+    margin-left: 110px; /* Para a avaliação ficar ao lado do nome */
+}
+
+/* Comentário */
+.comentario-card p {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-top: 20px;
+    margin-left: 110px; /* Deixar o comentário alinhado ao lado do nome */
 }
 
 /* Estilo para o formulário */
