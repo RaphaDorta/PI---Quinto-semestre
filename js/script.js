@@ -87,4 +87,57 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+document.getElementById('form-vacinas').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Capturar a data de nascimento
+    const dataNascimento = document.getElementById('data-nascimento').value;
+
+    if (!dataNascimento) {
+        alert("Por favor, insira a data de nascimento.");
+        return;
+    }
+
+    // Calcular a idade
+    const idade = calcularIdade(new Date(dataNascimento));
+
+    // Enviar a idade para o back-end
+    fetch(`/vacinas?idade=${idade}`)
+        .then(response => response.json())
+        .then(data => {
+            mostrarVacinas(data);
+        })
+        .catch(error => {
+            console.error('Erro ao buscar vacinas:', error);
+        });
+});
+
+// Função para calcular a idade
+function calcularIdade(dataNascimento) {
+    const hoje = new Date();
+    let idade = hoje.getFullYear() - dataNascimento.getFullYear();
+    const mes = hoje.getMonth() - dataNascimento.getMonth();
+    if (mes < 0 || (mes === 0 && hoje.getDate() < dataNascimento.getDate())) {
+        idade--;
+    }
+    return idade;
+}
+
+// Função para mostrar as vacinas
+function mostrarVacinas(vacinas) {
+    const resultado = document.getElementById('resultado-vacinas');
+    resultado.innerHTML = ''; // Limpa o conteúdo anterior
+
+    if (vacinas.length === 0) {
+        resultado.innerHTML = '<p>Nenhuma vacina disponível para sua idade.</p>';
+        return;
+    }
+
+    const listaVacinas = vacinas.map(vacina => {
+        return `<div><strong>${vacina.nome}</strong>: ${vacina.descricao}</div>`;
+    }).join('');
+
+    resultado.innerHTML = `<h3>Vacinas disponíveis:</h3>${listaVacinas}`;
+}
+
 

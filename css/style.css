@@ -301,6 +301,90 @@ h3 {
     background-color: #0078D4; /* Cor mais escura no hover */
 }
 
+/* Estilos para exibição dos resultados das vacinas */
+#resultado-vacinas {
+    width: 100%;
+    max-width: 1200px;  /* Limita a largura para telas grandes */
+    margin: 30px auto;  /* Centraliza na tela */
+    padding: 20px;
+    background-color: #fff;  /* Fundo branco */
+    border-radius: 10px;  /* Bordas arredondadas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Sombra suave */
+    box-sizing: border-box;
+}
+
+/* Título dos resultados */
+#resultado-vacinas h3 {
+    font-size: 2rem;
+    color: #0074d5;  /* Cor vibrante */
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Resultados de vacina */
+.resultado-vacina {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    background-color: #e7edeeb2; /* Fundo suave */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Sombra suave */
+}
+
+.resultado-vacina h4 {
+    color: #0074d5; /* Cor do título da vacina */
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.resultado-vacina p {
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* Estilo para o botão de ação (se necessário, como mostrar detalhes) */
+.resultado-vacina .detalhes-btn {
+    padding: 10px 20px;
+    background-color: #00C2BB;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.resultado-vacina .detalhes-btn:hover {
+    background-color: #0078D4; /* Cor de hover */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #resultado-vacinas {
+        padding: 20px;  /* Ajuste de padding para telas menores */
+    }
+}
+
+@media (max-width: 600px) {
+    #resultado-vacinas h3 {
+        font-size: 1.5rem;  /* Ajuste de tamanho do título */
+    }
+
+    .resultado-vacina {
+        padding: 15px;  /* Ajuste de padding para telas menores */
+    }
+}
+
+
 /* Rodapé */
 .rodape {
     background-color: #0075D4; /* Cor de fundo */
