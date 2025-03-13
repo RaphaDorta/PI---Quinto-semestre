@@ -146,3 +146,85 @@
     content: "\f058"; /* Aqui você pode colocar ícones da FontAwesome se preferir */
     font-weight: 900;
 }
+
+/* Estilo da tabela */
+.vacina-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.vacina-table th, .vacina-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+.vacina-table th {
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+}
+
+.vacina-table td {
+    background-color: #f9f9f9;
+}
+
+.vacina-table tr:nth-child(even) td {
+    background-color: #f4f4f4;
+}
+
+.vacina-table tr:hover {
+    background-color: #ecf0f1;
+}
+
+.vacina-table td {
+    font-size: 15px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .campo-form input[type="text"],
+    .campo-form input[type="date"] {
+        font-size: 14px;
+    }
+
+    .button-submit button {
+        font-size: 14px;
+        padding: 10px 18px;
+    }
+
+    .vacina-table th, .vacina-table td {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .vacina-table {
+        font-size: 14px;
+    }
+}
+
+/* Estilo para o título da seção de detalhes das vacinas */
+.detalhes-vacinas {
+    margin-top: 40px;
+}
+
+/* Centralização e espaçamento do título */
+.detalhes-vacinas h2 {
+    font-size: 28px; /* Tamanho aumentado para destaque */
+    color: #2c3e50; /* Cor escura para o título */
+    text-align: center; /* Centralização do título */
+    margin-bottom: 30px; /* Espaço abaixo do título */
+    padding: 10px 0; /* Preenchimento para um visual mais agradável */
+    background-color: #ecf0f1; /* Fundo sutil */
+    border-radius: 8px; /* Bordas arredondadas */
+}
+
+/* Distância entre o título e a tabela */
+.vacina-table {
+    margin-top: 20px; /* Distância entre o título e a tabela */
+    margin-bottom: 40px; /* Espaço após a tabela */
+}
