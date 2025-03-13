@@ -1,0 +1,148 @@
+/* Container da Seção */
+.sobre-app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Cabeçalho da Seção */
+.sobre-app-box h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* Subtítulos */
+.sobre-app-box h3 {
+    font-size: 24px;
+    color: #3498db;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* Parágrafos */
+.sobre-app-box p {
+    font-size: 16px;
+    color: #2c3e50; /* Cor mais escura e com bom contraste */
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+/* Estilos para os itens da lista */
+.sobre-app-box ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+/* Ajuste no estilo de cada item da lista */
+.sobre-app-box ul li {
+    font-size: 16px;
+    color: #2c3e50 !important; /* Cor mais escura para melhorar o contraste */
+    margin-bottom: 15px; /* Espaçamento entre os itens */
+    line-height: 1.6; /* Melhorando o espaçamento entre as linhas */
+    position: relative;
+    padding-left: 30px; /* Espaçamento extra à esquerda para o ícone */
+}
+
+/* Ícones ao lado dos itens da lista */
+.sobre-app-box ul li::before {
+    content: "\2022"; /* Utiliza o ponto como ícone */
+    font-size: 18px;
+    color: #3498db; /* Cor do ponto azul */
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Estilo para os subtítulos dentro da lista */
+.sobre-app-box ul li strong {
+    font-weight: bold;
+    color: #3498db; /* Cor azul para destacar os títulos */
+}
+
+/* Melhorando o hover para os itens da lista */
+.sobre-app-box ul li:hover {
+    background-color: #ecf0f1;
+    padding-left: 35px;
+    transition: all 0.3s ease;
+}
+
+/* Containers de cada box */
+.sobre-app-box {
+    margin-bottom: 30px;
+    padding: 25px;
+    border-radius: 8px;
+    background-color: #ecf0f1;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo de Hover para os Boxes */
+.sobre-app-box:hover {
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+    background-color: #dfe6e9;
+}
+
+/* Responsividade: Ajustes para telas pequenas */
+@media (max-width: 768px) {
+    .sobre-app-container {
+        padding: 20px;
+    }
+
+    .sobre-app-box h2 {
+        font-size: 24px;
+    }
+
+    .sobre-app-box h3 {
+        font-size: 20px;
+    }
+
+    .sobre-app-box p {
+        font-size: 14px;
+    }
+
+    .sobre-app-box ul li {
+        font-size: 14px;
+    }
+}
+
+/* Estilos de Botões ou Call-to-action */
+.btn-call-to-action {
+    display: inline-block;
+    background-color: #3498db;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.btn-call-to-action:hover {
+    background-color: #2980b9;
+    cursor: pointer;
+}
+
+/* Efeitos de Sombra */
+.sobre-app-container, .sobre-app-box {
+    transition: transform 0.3s ease-in-out;
+}
+
+.sobre-app-container:hover, .sobre-app-box:hover {
+    transform: translateY(-10px);
+}
+
+/* Estilo de Ícones (se for necessário) */
+.sobre-app-box ul li::before {
+    font-family: 'Font Awesome 5 Free';
+    content: "\f058"; /* Aqui você pode colocar ícones da FontAwesome se preferir */
+    font-weight: 900;
+}
