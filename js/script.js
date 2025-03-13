@@ -33,11 +33,18 @@ document.addEventListener('DOMContentLoaded', function() {
             let email = document.getElementById('mail').value;
             let msg = document.getElementById('msg').value;
 
-            if (name && email && msg) {
-                alert("Formulário enviado com sucesso!");
-            } else {
+            if (!name || !email || !msg) {
                 alert("Por favor, preencha todos os campos.");
+                return;
             }
+
+            // Validação do email
+            if (!email.match(/^[^@]+@[^@]+\.[^@]+$/)) {
+                alert("Por favor, insira um e-mail válido.");
+                return;
+            }
+
+            alert("Formulário enviado com sucesso!");
         });
     }
 
@@ -52,12 +59,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const vertInView = (rect.top <= windowHeight) && (rect.bottom >= 0);
         const horInView = (rect.left <= windowWidth) && (rect.right >= 0);
 
-        const isInView = (vertInView && horInView);
-
-        console.log('Element in view:', isInView, rect); // Adicione este log
-        return isInView;
+        return (vertInView && horInView);
     }
-
 
     // Seleciona a seção de descrição
     const descricaoApp = document.querySelector('.descricao-app');
@@ -76,7 +79,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Adiciona um evento de rolagem para verificar a visibilidade da seção
     window.addEventListener('scroll', handleScroll);
-
 
     // Função de redirecionamento para página de mais informações
     const btnSaibaMais = document.querySelector('.btn-saiba-mais');
@@ -101,8 +103,8 @@ document.getElementById('form-vacinas').addEventListener('submit', function(even
     // Calcular a idade
     const idade = calcularIdade(new Date(dataNascimento));
 
-    // Enviar a idade para o back-end
-    fetch(`/vacinas?idade=${idade}`)
+    // Enviar a idade para o back-end (substituir pela URL pública do seu back-end)
+    fetch(`https://seu-backend.herokuapp.com/vacinas?idade=${idade}`)
         .then(response => response.json())
         .then(data => {
             mostrarVacinas(data);
@@ -139,5 +141,3 @@ function mostrarVacinas(vacinas) {
 
     resultado.innerHTML = `<h3>Vacinas disponíveis:</h3>${listaVacinas}`;
 }
-
-
