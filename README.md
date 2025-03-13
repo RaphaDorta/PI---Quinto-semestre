@@ -1,77 +1,51 @@
-# VacinApp 🦠💉
+# ANÁLISE DE SOLUÇÕES INTEGRADAS PARA ORGANIZAÇÕES
 
-## O que é o VacinApp? 🤔
+## INTEGRANTES
 
-**VacinApp** é um aplicativo pensado para facilitar a gestão da sua vacinação! Ele oferece recomendações de vacinas, alertas sobre reforços e até mesmo informações educativas sobre surtos e epidemias. Com o VacinApp, você pode manter suas vacinas em dia e ajudar na prevenção de doenças de forma simples e eficiente. 🌍💪
+### Front End
+- Edgard Henrique da Silva
+- Érica de Araújo Macena
+- Raphael Siqueira Dorta
+- Rodrigo Heerdt
 
-### O que o VacinApp faz para você? 🎯
+### Back End
+- Adauto dos Santos Ananias
+- Cíntia Barbosa Lucena Gentil
+- Renan Sérgio de Paula
+- Thiago Diego Duarte de Sousa de Pieri
 
-- **Consulta de Vacinas**: Descubra quais vacinas são recomendadas para você com base na sua idade e histórico de vacinação. 🗓️
-- **Notificações e Lembretes**: Receba alertas para não perder nenhuma data importante de vacinação. ⏰
-- **Informações Detalhadas**: Acesse detalhes sobre os benefícios, efeitos colaterais e contraindicações das vacinas. 📚
-- **Acompanhamento de Surtos**: Fique por dentro de surtos e epidemias em tempo real com informações educativas para se proteger. 🌍
 
----
+## Objetivo
 
-## Funcionalidades 🚀
+O VacinApp oferece funcionalidades que permitem aos usuários:
 
-- **Recomendações Personalizadas**: O VacinApp sugere vacinas com base na sua faixa etária e no seu histórico de vacinação. 🎯
-- **Alertas e Lembretes**: Nunca mais perca um reforço ou vacina com as notificações automáticas do app. 🔔
-- **Conteúdos Educacionais**: Fique informado sobre surtos e epidemias, promovendo saúde pública de forma interativa. 📖
-- **Informações Transparentes**: Cada vacina tem suas informações detalhadas sobre benefícios, efeitos colaterais e mais. 💉
+- Consultar quais vacinas são recomendadas ou obrigatórias com base na sua idade, inserindo a data de nascimento.
+- Acessar informações detalhadas sobre vacinas, como benefícios, efeitos colaterais e contraindicações.
+- Receber notificações automáticas sobre a necessidade de reforços vacinais ou novas vacinas recomendadas, evitando que os usuários percam prazos importantes.
+- Receber alertas e lembretes personalizados sobre a proximidade das datas de vacinação.
+- Acompanhar surtos ou epidemias em tempo real, com informações educativas sobre como se proteger.
 
----
+## Funcionalidades
 
-## Benefícios 🌟
+- Recomendações Personalizadas: O aplicativo sugere vacinas de acordo com a faixa etária e histórico de vacinação do usuário.
+- Alertas e Lembretes: O VacinApp envia notificações para garantir que o usuário não perca os prazos das vacinas ou reforços.
+- Conteúdos Educacionais: Oferece informações sobre surtos e epidemias em tempo real, ajudando a promover a educação em saúde pública.
+- Informações Detalhadas: Para cada vacina, o aplicativo fornece informações claras sobre os benefícios, efeitos colaterais e contraindicações.
 
-- **Fácil Acesso**: Informações sobre vacinas disponíveis na palma da sua mão. 📱
-- **Promoção da Saúde Pública**: Ao incentivar a vacinação, o VacinApp ajuda a prevenir doenças e surtos. 🌍
-- **Estilo de Vida Saudável**: O app também te incentiva a manter um estilo de vida saudável e preventivo. 🍎💪
-- **Segurança e Bem-Estar**: Com as vacinas em dia, você contribui para a sua proteção e a de todos ao seu redor. 🛡️
+## Benefícios
 
----
+- Acesso rápido e fácil a informações sobre vacinas: Os usuários podem consultar informações detalhadas sobre vacinas a qualquer momento.
+- Promoção da saúde pública: Ao incentivar a vacinação, o VacinApp contribui para a prevenção de doenças e a redução da disseminação de surtos.
+- Promoção de hábitos saudáveis: O aplicativo não só facilita o processo de vacinação, mas também incentiva os usuários a manterem um estilo de vida mais saudável.
+- Segurança e bem-estar: Mantendo as vacinas em dia, o aplicativo ajuda na prevenção de doenças graves, melhorando a qualidade de vida dos usuários.
 
-## Impacto na Saúde Pública 🏥
+## Impacto na Saúde Pública
 
-Em um mundo onde a conscientização sobre a vacinação nunca foi tão importante, o VacinApp ajuda as pessoas a manterem suas vacinas atualizadas. Isso contribui para uma abordagem preventiva, reduzindo surtos e promovendo a saúde pública global. Juntos, podemos criar um futuro mais saudável! 🌍💉
+Este projeto tem um impacto significativo, especialmente em tempos em que a conscientização sobre vacinas nunca foi tão crucial. O VacinApp visa transformar a forma como as pessoas gerenciam suas vacinas e cuidados médicos, promovendo uma abordagem preventiva para a saúde.
 
----
+## Tecnologias Utilizadas
 
-## Tecnologias Utilizadas 💻
+- **Front end**: HTML; CSS; JS
+- **Back end**: Java 17; MySQL; Spring Boot
+- **APIs**: (Inserir APIs externas que possam ser usadas para surtos ou informações de vacinas)
 
-### Front-end 🖥️
-
-- **HTML**: Estrutura da página web.
-- **CSS**: Estilo e design do aplicativo.
-- **JavaScript**: Funcionalidades interativas e dinâmicas.
-
-### Back-end 🔙
-
-(Adicionar depois)
-
----
-
-## Como Contribuir 🤝
-
-Se você quer ajudar a tornar o VacinApp ainda melhor, siga estas etapas:
-
-1. **Fork** o repositório 🍴
-2. Crie uma nova **branch** (`git checkout -b feature/nova-feature`) 🌱
-3. Faça suas alterações e **commit** com uma mensagem clara (`git commit -am 'Adiciona nova feature'`) 💻
-4. **Push** sua branch (`git push origin feature/nova-feature`) 🚀
-5. Abra um **pull request** para revisão 🔄
-
----
-
-## Integrantes 👩‍💻👨‍💻
-
-Nosso time é formado por pessoas incríveis! Confira os responsáveis pelo desenvolvimento do VacinApp:
-
-- [Adauto dos Santos Ananias](https://github.com/adautoananias)
-- [Cíntia Barbosa Lucena Gentil](https://github.com/Cih-gentil)
-- [Edgard Henrique da Silva](https://github.com/edgardhenriqu)
-- [Érica de Araújo Macena](https://github.com/EricaMacena)
-- [Raphael Siqueira Dorta](https://github.com/RaphaDorta)
-- [Renan Sérgio de Paula](https://github.com/Renan-De-Paula)
-- [Rodrigo Heerdt](https://github.com/rodrigoheerdt)
-- [Thiago Diego Duarte de Sousa de Pieri](https://github.com/ThiagoDuarteDEV)

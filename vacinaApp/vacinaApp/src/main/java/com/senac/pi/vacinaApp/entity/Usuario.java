@@ -3,59 +3,64 @@ package com.senac.pi.vacinaApp.entity;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "usuario") // Nome da tabela no banco de dados
-public class User implements Serializable {
+public class Usuario implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idUser") // Nome da coluna no banco de dados
-    private Long idUser;
+    @Column(name = "idUsuario") // Nome da coluna no banco de dados
+    private Long idUsuario;
 
-    @Column(name = "nome", length = 45, nullable = false)
-    private String name;
+    @Column(name = "nome", length = 45, nullable = false) // Nome da coluna no banco de dados
+    private String nome;
 
     @Column(name = "dataNascimento", nullable = false) // Nome da coluna no banco de dados
     private Date dataNascimento;
 
-    @Column(name = "ddd", nullable = false)
+    @Column(name = "ddd", nullable = false) // Nome da coluna no banco de dados
     private String ddd;
 
-    @Column(name = "telefone", nullable = false)
+    @Column(name = "telefone", nullable = false) // Nome da coluna no banco de dados
     private String telefone;
 
-    @Column(name = "cpf", length = 11, nullable = false)
+    @Column(name = "cpf", length = 11, nullable = false) // Nome da coluna no banco de dados
     private String cpf;
 
-    @Column(name = "email", length = 45, nullable = false)
+    @Column(name = "email", length = 45, nullable = false) // Nome da coluna no banco de dados
     private String email;
 
+    @OneToMany(mappedBy = "usuario")
+    private List<UsuarioVacina> vacinas;
+
     // Getters e Setters
-    public Long getIdUser() {
-        return idUser;
+    public Long getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setIdUser(Long idUser) {
-        this.idUser = idUser;
+    public void setIdUsuario(Long idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public Date getDataNascimento() {
@@ -98,9 +103,17 @@ public class User implements Serializable {
         this.email = email;
     }
 
+    public List<UsuarioVacina> getVacinas() {
+        return vacinas;
+    }
+
+    public void setVacinas(List<UsuarioVacina> vacinas) {
+        this.vacinas = vacinas;
+    }
+
     @Override
     public String toString() {
-        return "User [idUser=" + idUser + ", name=" + name + ", dataNascimento=" + dataNascimento + ", ddd=" + ddd
-                + ", telefone=" + telefone + ", cpf=" + cpf + ", email=" + email + "]";
+        return "Usuario [idUsuario=" + idUsuario + ", nome=" + nome + ", dataNascimento=" + dataNascimento
+                + ", ddd=" + ddd + ", telefone=" + telefone + ", cpf=" + cpf + ", email=" + email + "]";
     }
 }

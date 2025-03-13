@@ -1,5 +1,6 @@
 package com.senac.pi.vacinaApp.service;
 
+import com.senac.pi.vacinaApp.type.VacinaResponse;
 import com.senac.pi.vacinaApp.entity.Vacina; // Importa a entidade Vacina
 import com.senac.pi.vacinaApp.repository.VacinaRepository; // Importa o repositório VacinaRepository
 import com.senac.pi.vacinaApp.entity.User; // Importa a entidade User

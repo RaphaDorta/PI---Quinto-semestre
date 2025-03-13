@@ -1,39 +1,72 @@
-package com.senac.pi.vacinaApp.service; // Pacote onde o serviço está localizado
+package com.senac.pi.vacinaApp.service;
 
-import com.senac.pi.vacinaApp.entity.User; // Importa a entidade User
-import com.senac.pi.vacinaApp.repository.UserRepository; // Importa o repositório UserRepository
-import com.senac.pi.vacinaApp.type.UserCreateRequest; // Importa o tipo UserCreateRequest
-import com.senac.pi.vacinaApp.type.UserCreateResponse; // Importa o tipo UserCreateResponse
-import org.springframework.beans.factory.annotation.Autowired; // Importa a anotação para injeção de dependência
-import org.springframework.stereotype.Service; // Importa a anotação para definir um serviço
+import com.senac.pi.vacinaApp.entity.User;
+import com.senac.pi.vacinaApp.repository.UserRepository;
+import com.senac.pi.vacinaApp.type.UserCreateRequest;
+import com.senac.pi.vacinaApp.type.UserCreateResponse;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-@Service // Indica que essa classe é um serviço Spring
+import java.time.ZoneId;
+import java.util.Optional;
+import java.util.Date;
+import java.time.LocalDate;
+
+@Service
 public class UserService {
 
-    @Autowired // Injeta automaticamente a instância do repositório
-    private UserRepository userRepository; 
+    @Autowired
+    private UserRepository userRepository;
 
-    // Método para criar um novo usuário
     public UserCreateResponse criarUsuario(UserCreateRequest request) {
-        User usuario = new User(); // Cria uma nova instância de User
-        usuario.setName(request.getName()); // Define o nome do usuário
-        usuario.setDataNascimento(request.getDataNascimento()); // Define a data de nascimento
-        usuario.setCpf(request.getCpf()); // Define o CPF
-        usuario.setEmail(request.getEmail()); // Define o email
-        usuario.setDdd(request.getDdd()); // Define o DDD
-        usuario.setTelefone(request.getTelefone()); // Define o telefone
-        
-        User savedUser = userRepository.save(usuario); // Salva o usuário no banco de dados
-        
-        UserCreateResponse response = new UserCreateResponse(); // Cria uma nova resposta
-        response.setIdUsuario(savedUser.getIdUsuario()); // Define o ID do usuário salvo
-        response.setName(savedUser.getName()); // Define o nome na resposta
-        response.setDataNascimento(savedUser.getDataNascimento().toInstant().atZone(ZoneId.systemDefault()).toLocalDate()); // Converte e define a data de nascimento
-        response.setDdd(savedUser.getDdd()); // Define o DDD na resposta
-        response.setTelefone(savedUser.getTelefone()); // Define o telefone na resposta
-        response.setCpf(savedUser.getCpf()); // Define o CPF na resposta
-        response.setEmail(savedUser.getEmail()); // Define o email na resposta
+        User usuario = new User();
+        usuario.setName(request.getName());
+        usuario.setDataNascimento(request.getDataNascimento());
+        usuario.setDdd(request.getDdd()); // Já é String
+        usuario.setTelefone(request.getTelefone()); // Já é String
+        usuario.setCpf(request.getCpf());
+        usuario.setEmail(request.getEmail());
 
-        return response; // Retorna a resposta do usuário criado
+        User savedUser = userRepository.save(usuario);
+
+        UserCreateResponse response = new UserCreateResponse();
+        response.setIdUser(savedUser.getIdUser()); // Changed from setIdUsuario to setIdUser
+        response.setName(savedUser.getName());
+        response.setDataNascimento(savedUser.getDataNascimento().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+        response.setDdd(savedUser.getDdd()); // Já é String
+        response.setTelefone(savedUser.getTelefone()); // Já é String
+        response.setCpf(savedUser.getCpf());
+        response.setEmail(savedUser.getEmail());
+
+        return response;
     }
-} 
+
+    public UserCreateResponse buscarUsuarioPorId(Long id) {
+        User usuario = userRepository.findById(id).orElse(null);
+
+        if (usuario != null) {
+            UserCreateResponse response = new UserCreateResponse();
+            response.setIdUser(usuario.getIdUser()); // Changed from setIdUsuario to setIdUser
+            response.setName(usuario.getName());
+
+            // Convert java.sql.Date to LocalDate
+            if (usuario.getDataNascimento() != null) {
+                LocalDate dataNascimento = usuario.getDataNascimento().toInstant()
+                            .atZone(ZoneId.systemDefault())
+                            .toLocalDate();
+                response.setDataNascimento(dataNascimento);
+            } else {
+                response.setDataNascimento(null); // Ou defina um valor padrão
+            }
+
+            response.setCpf(usuario.getCpf());
+            response.setEmail(usuario.getEmail());
+            response.setDdd(usuario.getDdd());
+            response.setTelefone(usuario.getTelefone());
+
+            return response;
+        } else {
+            return null;
+        }
+    }
+}

@@ -12,15 +12,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 
 @Entity
-@Table(name = "UsuarioVacina")
+@Table(name = "usuario_vacina")
 public class UsuarioVacina implements Serializable {
-	
-	@Serial
-	private static final long serialVersionUID = 1l;
+
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,79 +26,68 @@ public class UsuarioVacina implements Serializable {
     private Integer idUsuarioVacina;
 
     @ManyToOne
-    @JoinColumn(name = "idUser", nullable = false)
-    private User usuario;
+    @JoinColumn(name = "idUsuario", nullable = false)
+    private Usuario usuario; // Usando a classe Usuario
 
     @ManyToOne
     @JoinColumn(name = "idVacina", nullable = false)
     private Vacina vacina;
 
-    @Column(name = "dataPrimeiraDose", nullable = false)
-    @Temporal(TemporalType.DATE)
+    @Column(name = "data_primeira_dose", nullable = false)
     private Date dataPrimeiraDose;
 
-    @Column(name = "dataSegundaDose")
-    @Temporal(TemporalType.DATE)
+    @Column(name = "data_segunda_dose")
     private Date dataSegundaDose;
 
-    @Column(name = "segundaDosePendente", nullable = false)
+    @Column(name = "segunda_dose_pendente", nullable = false)
     private Boolean segundaDosePendente;
 
-	public Integer getIdUsuarioVacina() {
-		return idUsuarioVacina;
-	}
+    // Getters e Setters
+    public Integer getIdUsuarioVacina() {
+        return idUsuarioVacina;
+    }
 
-	public void setIdUsuarioVacina(Integer idUsuarioVacina) {
-		this.idUsuarioVacina = idUsuarioVacina;
-	}
+    public void setIdUsuarioVacina(Integer idUsuarioVacina) {
+        this.idUsuarioVacina = idUsuarioVacina;
+    }
 
-	public User getUsuario() {
-		return usuario;
-	}
+    public Usuario getUsuario() {
+        return usuario;
+    }
 
-	public void setUsuario(User usuario) {
-		this.usuario = usuario;
-	}
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 
-	public Vacina getVacina() {
-		return vacina;
-	}
+    public Vacina getVacina() {
+        return vacina;
+    }
 
-	public void setVacina(Vacina vacina) {
-		this.vacina = vacina;
-	}
+    public void setVacina(Vacina vacina) {
+        this.vacina = vacina;
+    }
 
-	public Date getDataPrimeiraDose() {
-		return dataPrimeiraDose;
-	}
+    public Date getDataPrimeiraDose() {
+        return dataPrimeiraDose;
+    }
 
-	public void setDataPrimeiraDose(Date dataPrimeiraDose) {
-		this.dataPrimeiraDose = dataPrimeiraDose;
-	}
+    public void setDataPrimeiraDose(Date dataPrimeiraDose) {
+        this.dataPrimeiraDose = dataPrimeiraDose;
+    }
 
-	public Date getDataSegundaDose() {
-		return dataSegundaDose;
-	}
+    public Date getDataSegundaDose() {
+        return dataSegundaDose;
+    }
 
-	public void setDataSegundaDose(Date dataSegundaDose) {
-		this.dataSegundaDose = dataSegundaDose;
-	}
+    public void setDataSegundaDose(Date dataSegundaDose) {
+        this.dataSegundaDose = dataSegundaDose;
+    }
 
-	public Boolean getSegundaDosePendente() {
-		return segundaDosePendente;
-	}
+    public Boolean getSegundaDosePendente() {
+        return segundaDosePendente;
+    }
 
-	public void setSegundaDosePendente(Boolean segundaDosePendente) {
-		this.segundaDosePendente = segundaDosePendente;
-	}
-
-	@Override
-	public String toString() {
-		return "UsuarioVacina [idUsuarioVacina=" + idUsuarioVacina + ", usuario=" + usuario + ", vacina=" + vacina
-				+ ", dataPrimeiraDose=" + dataPrimeiraDose + ", dataSegundaDose=" + dataSegundaDose
-				+ ", segundaDosePendente=" + segundaDosePendente + "]";
-	}
-    
-    
-    
+    public void setSegundaDosePendente(Boolean segundaDosePendente) {
+        this.segundaDosePendente = segundaDosePendente;
+    }
 }

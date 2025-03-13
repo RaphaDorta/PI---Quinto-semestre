@@ -4,8 +4,6 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
 
-import org.hibernate.annotations.ManyToAny;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,113 +15,135 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Vacina")
-public class Vacina implements Serializable{
-	
-	@Serial
+@Table(name = "vacina") // Nome da tabela no banco de dados
+public class Vacina implements Serializable {
+
+    @Serial
     private static final long serialVersionUID = 1L;
-	
-	@Id
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idVacina")
-	private Integer idVacina;
-	
-	@Column(name = "nomeVacina", length = 75, nullable = false)
-	private String nomeVacina;
-	
-	@Column(name = "dosesTomar", nullable = false)
-	private Integer dosesTomar;
-	
-	@Column(name = "loteVacina", length = 50, nullable = false)
-	private String loteVacina;
-	
-	@Column(name = "país", length = 100, nullable = false)
-	private String país;
-	
-	@Column(name = "informacoesVacina", length = 1000, nullable = false)
-	private String informacoesVacina;
-	
-	@Column(name = "efeitosColaterais", length = 1000)
-	private String efeitosColaterais;
-	
-	@ManyToMany
-	@JoinTable(
-			name = "vacinaHospital",
-			joinColumns = @JoinColumn(name = "idVacina"),
-			inverseJoinColumns = @JoinColumn(name = "idHospital")
-			)
-	private List<Hospital> hospitais;
-	
+    @Column(name = "idVacina") // Nome da coluna no banco de dados
+    private Integer idVacina;
 
-	public Integer getIdVacina() {
-		return idVacina;
-	}
+    @Column(name = "nome_vacina", length = 75, nullable = false) // Nome da coluna no banco de dados
+    private String nomeVacina;
 
-	public void setIdVacina(Integer idVacina) {
-		this.idVacina = idVacina;
-	}
+    @Column(name = "doses_tomar", nullable = false) // Nome da coluna no banco de dados
+    private Integer dosesTomar;
 
-	public String getNomeVacina() {
-		return nomeVacina;
-	}
+    @Column(name = "lote_vacina", length = 50, nullable = false) // Nome da coluna no banco de dados
+    private String loteVacina;
 
-	public void setNomeVacina(String nomeVacina) {
-		this.nomeVacina = nomeVacina;
-	}
+    @Column(name = "país", length = 100, nullable = false) // Nome da coluna no banco de dados
+    private String país;
 
-	public Integer getDosesTomar() {
-		return dosesTomar;
-	}
+    @Column(name = "informacoes_vacina", length = 1000, nullable = false) // Nome da coluna no banco de dados
+    private String informacoesVacina;
 
-	public void setDosesTomar(Integer dosesTomar) {
-		this.dosesTomar = dosesTomar;
-	}
+    @Column(name = "efeitos_colaterais", length = 1000) // Nome da coluna no banco de dados
+    private String efeitosColaterais;
 
-	public String getLoteVacina() {
-		return loteVacina;
-	}
+    @Column(name = "idade_minima", nullable = false) // Nome da coluna no banco de dados
+    private Integer idadeMinima;
 
-	public void setLoteVacina(String loteVacina) {
-		this.loteVacina = loteVacina;
-	}
+    @Column(name = "idade_maxima", nullable = false) // Nome da coluna no banco de dados
+    private Integer idadeMaxima;
 
-	public String getPaís() {
-		return país;
-	}
+    @ManyToMany
+    @JoinTable(
+        name = "vacina_hospital", // Nome da tabela de junção no banco de dados
+        joinColumns = @JoinColumn(name = "idVacina"), // Coluna da tabela Vacina
+        inverseJoinColumns = @JoinColumn(name = "idHospital") // Coluna da tabela Hospital
+    )
+    private List<Hospital> hospitais;
 
-	public void setPaís(String país) {
-		this.país = país;
-	}
+    // Getters e Setters
+    public Integer getIdVacina() {
+        return idVacina;
+    }
 
-	public String getInformacoesVacina() {
-		return informacoesVacina;
-	}
+    public void setIdVacina(Integer idVacina) {
+        this.idVacina = idVacina;
+    }
 
-	public void setInformacoesVacina(String informacoesVacina) {
-		this.informacoesVacina = informacoesVacina;
-	}
+    public String getNomeVacina() {
+        return nomeVacina;
+    }
 
-	public String getEfeitosColaterais() {
-		return efeitosColaterais;
-	}
+    public void setNomeVacina(String nomeVacina) {
+        this.nomeVacina = nomeVacina;
+    }
 
-	public void setEfeitosColaterais(String efeitosColaterais) {
-		this.efeitosColaterais = efeitosColaterais;
-	}
-	
-	
-	public List<Hospital> getHospitais() {
-		return hospitais;
-	}
+    public Integer getDosesTomar() {
+        return dosesTomar;
+    }
 
-	public void setHospitais(List<Hospital> hospitais) {
-		this.hospitais = hospitais;
-	}
+    public void setDosesTomar(Integer dosesTomar) {
+        this.dosesTomar = dosesTomar;
+    }
 
-	@Override
-	public String toString() {
-		return "Vacina [idVacina=" + idVacina + ", nomeVacina=" + nomeVacina + ", dosesTomar=" + dosesTomar
-				+ ", loteVacina=" + loteVacina + ", país=" + país + ", informacoesVacina=" + informacoesVacina
-				+ ", efeitosColaterais=" + efeitosColaterais + ", hospitais=" + hospitais + "]";
-	}
+    public String getLoteVacina() {
+        return loteVacina;
+    }
+
+    public void setLoteVacina(String loteVacina) {
+        this.loteVacina = loteVacina;
+    }
+
+    public String getPaís() {
+        return país;
+    }
+
+    public void setPaís(String país) {
+        this.país = país;
+    }
+
+    public String getInformacoesVacina() {
+        return informacoesVacina;
+    }
+
+    public void setInformacoesVacina(String informacoesVacina) {
+        this.informacoesVacina = informacoesVacina;
+    }
+
+    public String getEfeitosColaterais() {
+        return efeitosColaterais;
+    }
+
+    public void setEfeitosColaterais(String efeitosColaterais) {
+        this.efeitosColaterais = efeitosColaterais;
+    }
+
+    public Integer getIdadeMinima() {
+        return idadeMinima;
+    }
+
+    public void setIdadeMinima(Integer idadeMinima) {
+        this.idadeMinima = idadeMinima;
+    }
+
+    public Integer getIdadeMaxima() {
+        return idadeMaxima;
+    }
+
+    public void setIdadeMaxima(Integer idadeMaxima) {
+        this.idadeMaxima = idadeMaxima;
+    }
+
+    public List<Hospital> getHospitais() {
+        return hospitais;
+    }
+
+    public void setHospitais(List<Hospital> hospitais) {
+        this.hospitais = hospitais;
+    }
+
+    @Override
+    public String toString() {
+        return "Vacina [idVacina=" + idVacina + ", nomeVacina=" + nomeVacina + ", dosesTomar=" + dosesTomar
+                + ", loteVacina=" + loteVacina + ", país=" + país + ", informacoesVacina=" + informacoesVacina
+                + ", efeitosColaterais=" + efeitosColaterais + ", idadeMinima=" + idadeMinima + ", idadeMaxima="
+                + idadeMaxima + ", hospitais=" + hospitais + "]";
+    }
 }

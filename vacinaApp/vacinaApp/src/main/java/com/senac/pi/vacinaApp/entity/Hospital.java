@@ -13,37 +13,37 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Hospital")
-public class Hospital implements Serializable{
-	
-	@Serial
+@Table(name = "hospital") // Nome da tabela no banco de dados
+public class Hospital implements Serializable {
+
+    @Serial
     private static final long serialVersionUID = 1L;
-	
-	@Id
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idHospital")
-	private Integer idHospital;
-	
-	@Column(name = "nomeHospital", length = 100, nullable = false)
-	private String nomeHospital;
-	
-	@Column(name = "estado", length = 70, nullable = false)
-	private String estado;
-	
-	@Column(name = "país", length = 70, nullable = false)
-	private String país;
-	
-	@Column(name = "endereco", length = 100, nullable = false)
-	private String endereco;
-	
-	@Column(name = "ddd", nullable = false)
-	private Integer ddd;
-	
-	@Column(name = "telefone", nullable = false)
-	private Integer telefone;
-	
-	@ManyToMany(mappedBy = "hospitais")
-	private List<Vacina> vacinas;
+    @Column(name = "idHospital") // Nome da coluna no banco de dados
+    private Integer idHospital;
+
+    @Column(name = "nome_hospital", length = 100, nullable = false) // Nome da coluna no banco de dados
+    private String nomeHospital;
+
+    @Column(name = "estado", length = 70, nullable = false) // Nome da coluna no banco de dados
+    private String estado;
+
+    @Column(name = "país", length = 70, nullable = false) // Nome da coluna no banco de dados
+    private String país;
+
+    @Column(name = "endereco", length = 100, nullable = false) // Nome da coluna no banco de dados
+    private String endereco;
+
+    @Column(name = "ddd", nullable = false) // Nome da coluna no banco de dados
+    private Integer ddd;
+
+    @Column(name = "telefone", nullable = false) // Nome da coluna no banco de dados
+    private Integer telefone;
+
+    @ManyToMany(mappedBy = "hospitais")
+    private List<Vacina> vacinas;
 
 	public Integer getIdHospital() {
 		return idHospital;
