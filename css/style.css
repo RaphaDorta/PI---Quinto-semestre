@@ -610,11 +610,25 @@ p, li {
     color: #2e3030;
 }
 
-/* Alterando as cores dos títulos das funcionalidades específicas */
+/* Alterando as cores dos títulos do topico funcionalidades  */
 .sobre-app-box ul li:nth-child(1) strong, /* Informações Detalhadas */
 .sobre-app-box ul li:nth-child(2) strong,
 .sobre-app-box ul li:nth-child(3) strong,
 .sobre-app-box ul li:nth-child(4) strong, /* Lembretes Automáticos */
 .sobre-app-box ul li:nth-child(5) strong { /* Educação em Saúde */
     color: #000000;  /* Cor preta para esses títulos */
+}
+
+
+/* Títulos do tópico Detalhes Vacinas*/
+h1, h2, h3, h4, h5, h6 {
+    font-family: Georgia, serif;  /* Fonte para os títulos */
+    color: #000000;  /* Cor preta para os títulos (ajuste conforme necessário) */
+}
+
+/* Textosdo tópico Detalhes Vacinas*/
+p, td, li, .vacina-table td {
+    font-family: 'Ubuntu', sans-serif;  /* Fonte para os textos */
+    font-size: 0.9rem;  /* Ajuste o tamanho da fonte se necessário */
+    color: #2e3030;  /* Cor do texto */
 }
