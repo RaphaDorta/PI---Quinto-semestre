@@ -1,143 +1,634 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Função para rolagem suave
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
+/* Importação de fontes */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
-    // Função para ativar/desativar o menu no mobile
-    const menuToggle = document.getElementById('menu-toggle');
-    if (menuToggle) {
-        menuToggle.addEventListener('click', function () {
-            const menu = document.querySelector('.cabecalho-menu');
-            if (menu) {
-                menu.classList.toggle('active');
-            }
-        });
-    }
-
-    // Validação simples do formulário
-    const formulario = document.getElementById('formulario');
-    if (formulario) {
-        formulario.addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            let name = document.getElementById('name').value;
-            let email = document.getElementById('mail').value;
-            let msg = document.getElementById('msg').value;
-
-            if (!name || !email || !msg) {
-                alert("Por favor, preencha todos os campos.");
-                return;
-            }
-
-            // Validação do email
-            if (!email.match(/^[^@]+@[^@]+\.[^@]+$/)) {
-                alert("Por favor, insira um e-mail válido.");
-                return;
-            }
-
-            alert("Formulário enviado com sucesso!");
-        });
-    }
-
-    // Função para verificar se o elemento está visível na tela
-    function isElementInView(element) {
-        if (!element) return false;
-        const rect = element.getBoundingClientRect();
-        const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
-        const windowWidth = (window.innerWidth || document.documentElement.clientWidth);
-
-        // Modifique as condições para verificar se *qualquer parte* do elemento está visível
-        const vertInView = (rect.top <= windowHeight) && (rect.bottom >= 0);
-        const horInView = (rect.left <= windowWidth) && (rect.right >= 0);
-
-        return (vertInView && horInView);
-    }
-
-    // Seleciona a seção de descrição
-    const descricaoApp = document.querySelector('.descricao-app');
-
-    function handleScroll() {
-        if (descricaoApp) { // Verifica se o elemento existe
-            if (isElementInView(descricaoApp)) {
-                descricaoApp.classList.add('visible'); // Adiciona a classe para mostrar a seção
-                window.removeEventListener('scroll', handleScroll); // Remove listener after it becomes visible once to avoid performance hit
-            }
-        }
-    }
-
-    // Check on initial load
-    handleScroll();
-
-    // Adiciona um evento de rolagem para verificar a visibilidade da seção
-    window.addEventListener('scroll', handleScroll);
-
-    // Função de redirecionamento para página de mais informações
-    const btnSaibaMais = document.querySelector('.btn-saiba-mais');
-    if (btnSaibaMais) {
-        btnSaibaMais.addEventListener('click', function () {
-            window.location.href = '/mais-informacoes'; // Redireciona para a página de mais informações
-        });
-    }
-});
-
-document.getElementById('form-vacinas').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    // Capturar a data de nascimento
-    const dataNascimento = document.getElementById('data-nascimento').value;
-
-    if (!dataNascimento) {
-        alert("Por favor, insira a data de nascimento.");
-        return;
-    }
-
-    // Calcular a idade
-    const idade = calcularIdade(new Date(dataNascimento));
-
-    // Enviar a idade para o back-end (substituir pela URL pública do seu back-end)
-    fetch(`https://seu-backend.herokuapp.com/vacinas?idade=${idade}`)
-        .then(response => response.json())
-        .then(data => {
-            mostrarVacinas(data);
-        })
-        .catch(error => {
-            console.error('Erro ao buscar vacinas:', error);
-        });
-});
-
-// Função para calcular a idade
-function calcularIdade(dataNascimento) {
-    const hoje = new Date();
-    let idade = hoje.getFullYear() - dataNascimento.getFullYear();
-    const mes = hoje.getMonth() - dataNascimento.getMonth();
-    if (mes < 0 || (mes === 0 && hoje.getDate() < dataNascimento.getDate())) {
-        idade--;
-    }
-    return idade;
+/* Reset e estilos globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
 }
 
-// Função para mostrar as vacinas
-function mostrarVacinas(vacinas) {
-    const resultado = document.getElementById('resultado-vacinas');
-    resultado.innerHTML = ''; // Limpa o conteúdo anterior
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
 
-    if (vacinas.length === 0) {
-        resultado.innerHTML = '<p>Nenhuma vacina disponível para sua idade.</p>';
-        return;
+/* Cabeçalho */
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+    background-color: #00C2BB;
+    color: #fff;
+    align-items: center;
+}
+
+.cabecalho-imagem {
+    width: 200px;
+}
+
+.cabecalho-menu {
+    display: flex;
+    gap: 30px;
+    font-weight: bold;
+}
+
+.menu-item {
+    color: #fff;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.menu-item:hover {
+    color: #f39c12;
+}
+
+/* Menu responsivo */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    color: #fff;
+}
+
+/* Imagem de Capa */
+.principal-box {
+    height: 80vh; /* Mantém a altura em 80vh */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden; /* Mantém o overflow hidden */
+}
+
+#imagem-capa {
+    background-image: url("../img/capa-vacina.png");
+    background-repeat: no-repeat;
+    background-size: cover; /* Mantém o background-size cover */
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Seção secundária */
+.secundario-box {
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+}
+
+.caixas-secundarias {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1200px; /* Limita a largura para telas grandes */
+}
+
+.conteudo-box {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap; /* Garante que os itens se ajustem em telas pequenas */
+}
+
+.conteudo-box img {
+    max-width: 100%;  /* Garante que a imagem não ultrapasse os limites do container */
+    height: auto;  /* Mantém a proporção da imagem */
+    border-radius: 10px;  /* Adiciona cantos arredondados (opcional) */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);  /* Adiciona sombra leve (opcional) */
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    margin-bottom: 30px; /* Adiciona um espaço entre os boxes */
+}
+
+.box:hover {
+    transform: translateY(-10px);
+}
+
+.descricao-app {
+    padding: 50px 20px;
+    background-color: #e7edeeb2;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0; /* Inicialmente invisível */
+    transform: translateY(30px); /* Inicia um pouco abaixo */
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.descricao-app.visible {
+    animation: fadeIn 1s forwards; /* Animação de fade in */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilo do título (h2) */
+.descricao-app h2 {
+    color: #0074d5;  /* Cor vibrante para a chamada */
+    font-size: 2rem; /* Tamanho maior para chamar atenção */
+    margin-bottom: 20px;
+    font-weight: bold; /* Destacar ainda mais o título */
+    text-transform: uppercase; /* Deixar em maiúsculas */
+    text-align: center; /* Centraliza o título */
+}
+
+/* Estilo do texto (p) */
+.descricao-app p {
+    font-size: 1.2rem;
+    color: #212121; /* Cor escura para o texto */
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto; /* Centraliza o texto */
+    text-align: justify; /* Justifica o texto */
+    margin-top: 20px;
+}
+
+h3 {
+    color: #0074d5;
+    margin-bottom: 15px;
+}
+
+/* Seção de Comentários */
+.comentarios {
+    background-color: #f8f9fa;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.comentarios h2 {
+    font-size: 2rem;
+    color: #0074d5;
+    margin-bottom: 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.comentarios-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.comentario-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: left;
+}
+
+.comentario-card h3 {
+    font-family: 'Ubuntu', sans-serif;
+    color: #0074d5;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.comentario-card p {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 0.9rem;
+    color: #2e3030;
+}
+
+/* Efeito de hover para os cards */
+.comentario-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Estilo para o formulário */
+.consulta-vacinas {
+    display: grid;
+    grid-template-columns: 1fr; /* Apenas uma coluna */
+    gap: 30px;  /* Espaçamento entre os itens */
+    padding: 50px 0;  /* Padding semelhante ao do outro layout */
+    justify-items: center; /* Centraliza os itens */
+    width: 100%;
+    max-width: 1200px;  /* Garante que o conteúdo não ultrapasse 1200px */
+    margin: 0 auto;  /* Centraliza o conteúdo na tela */
+}
+
+.consulta-vacinas-box {
+    background-color: #fff; /* Cor de fundo branca */
+    padding: 40px; /* Ajuste para o espaçamento interno */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombras mais suaves */
+    width: 100%;
+    max-width: 100%; /* Garante que ocupe 100% da largura da célula */
+    box-sizing: border-box; /* Faz com que o padding seja considerado na largura total */
+}
+
+.consulta-vacinas h2 {
+    color: #0074d5;;  
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.campo-form {
+    margin-bottom: 20px;  /* Aumentado para ser igual ao outro formulário */
+}
+
+.campo-form label {
+    display: block;
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.campo-form input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.campo-form input:focus {
+    border-color: #27ae60;  /* Cor de foco igual ao formulário */
+    outline: none;
+}
+
+.button-submit {
+    text-align: center;
+}
+
+.button-submit button {
+    padding: 12px 30px;
+    background-color: #00C2BB; /* Cor verde igual ao do formulário */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button-submit button:hover {
+    background-color: #0078D4; /* Cor mais escura no hover */
+}
+
+/* Estilos para exibição dos resultados das vacinas */
+#resultado-vacinas {
+    width: 100%;
+    max-width: 1200px;  /* Limita a largura para telas grandes */
+    margin: 30px auto;  /* Centraliza na tela */
+    padding: 20px;
+    background-color: #fff;  /* Fundo branco */
+    border-radius: 10px;  /* Bordas arredondadas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Sombra suave */
+    box-sizing: border-box;
+}
+
+/* Título dos resultados */
+#resultado-vacinas h3 {
+    font-size: 2rem;
+    color: #0074d5;  /* Cor vibrante */
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Resultados de vacina */
+.resultado-vacina {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    background-color: #e7edeeb2; /* Fundo suave */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Sombra suave */
+}
+
+.resultado-vacina h4 {
+    color: #0074d5; /* Cor do título da vacina */
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.resultado-vacina p {
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* Estilo para o botão de ação (se necessário, como mostrar detalhes) */
+.resultado-vacina .detalhes-btn {
+    padding: 10px 20px;
+    background-color: #00C2BB;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.resultado-vacina .detalhes-btn:hover {
+    background-color: #0078D4; /* Cor de hover */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #resultado-vacinas {
+        padding: 20px;  /* Ajuste de padding para telas menores */
+    }
+}
+
+@media (max-width: 600px) {
+    #resultado-vacinas h3 {
+        font-size: 1.5rem;  /* Ajuste de tamanho do título */
     }
 
-    const listaVacinas = vacinas.map(vacina => {
-        return `<div><strong>${vacina.nome}</strong>: ${vacina.descricao}</div>`;
-    }).join('');
+    .resultado-vacina {
+        padding: 15px;  /* Ajuste de padding para telas menores */
+    }
+}
 
-    resultado.innerHTML = `<h3>Vacinas disponíveis:</h3>${listaVacinas}`;
+
+/* Rodapé */
+.rodape {
+    background-color: #0075D4; /* Cor de fundo */
+    color: #fff; /* Cor do texto */
+    text-align: center; /* Centraliza o texto */
+    padding: 30px 20px; /* Maior espaçamento para dar um visual mais clean */
+    font-family: 'Arial', sans-serif; /* Fonte legível */
+}
+
+.rodape .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.rodape .footer-title {
+    font-size: 1.1rem; /* Tamanho da fonte reduzido */
+    margin-bottom: 15px;
+    font-weight: normal; /* Remove o negrito */
+}
+
+.rodape .team {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    font-size: 0.9rem; /* Tamanho da fonte mais suave */
+    font-weight: normal; /* Remove o negrito */
+}
+
+.rodape .team p {
+    margin: 0;
+    padding: 0;
+    max-width: 250px;
+}
+
+/* Estilos para os links */
+.rodape a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.rodape a:hover {
+    color: #f39c12; /* Cor dourada ao passar o mouse */
+}
+
+/* Mudar a cor do texto dentro das caixas */
+.box h3,
+.box p {
+    color: #0074d5;  /* Cor mais escura */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Georgia, serif;/* Fonte para todos os títulos */
+}
+
+/* Estilo para o texto dentro das caixas (agilidade, conhecimento, Disponibilidade..) */
+.box p {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 0.9rem;  /* Ajuste o tamanho da fonte se necessário */
+    color: #2e3030;  /* Cor do texto, pode ajustar conforme necessário */
+}
+
+.descricao-app {
+    display: flex;
+    justify-content: center;  /* Centraliza horizontalmente */
+    align-items: center;  /* Centraliza verticalmente */
+    text-align: center;  /* Garante alinhamento */
+    padding: 20px;
+}
+
+.comentario-card img {
+    width: 100px; /* Ajuste o tamanho conforme necessário */
+    height: 100px;
+    border-radius: 50%; /* Torna a imagem redonda */
+    display: block;
+    margin: 0 auto; /* Centraliza a imagem */
+    object-fit: cover; /* Mantém o foco no rosto */
+}
+
+.avaliacao {
+    text-align: center;
+    font-size: 20px; /* Ajuste o tamanho das estrelas */
+    color: gold; /* Deixa as estrelas douradas */
+    margin: 5px 0;
+}
+
+/* MEDIA QUERIES */
+
+/* Menu responsivo */
+@media (max-width: 768px) {
+    .cabecalho-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: #097A64;
+        padding: 20px;
+        border-radius: 8px;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .cabecalho-menu.active {
+        display: flex;
+    }
+}
+
+@media (max-width: 768px) {
+    .principal-box {
+        height: 60vh; /* Reduz a altura em telas menores */
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .comentarios-container {
+        grid-template-columns: 1fr; /* 1 coluna em telas pequenas */
+    }
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 900px) {
+    .consulta-vacinas {
+        grid-template-columns: 1fr; /* Garantir uma coluna em telas médias */
+    }
+}
+
+@media (max-width: 600px) {
+    .consulta-vacinas {
+        grid-template-columns: 1fr; /* Garantir uma coluna em telas pequenas */
+    }
+}
+
+@media (max-width: 768px) {
+    .rodape .team {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .rodape .team p {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .cabecalho {
+        flex-direction: column;
+        padding: 20px;
+    }
+    
+    .cabecalho-imagem {
+        width: 220px;
+    }
+
+    .cabecalho-menu {
+        display: block;
+    }
+
+    .conteudo-box {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form {
+        width: 90%;
+    }
+
+    .principal-texto {
+        font-size: 2rem;
+        text-align: center; /* Ajuste para centralizar o texto em dispositivos pequenos */
+    }
+
+    .box {
+        width: 90%; /* Ajuste para garantir que as caixas não ultrapassem a largura da tela */
+    }
+}
+
+/* Responsividade para telas médias (500px - 1451px) */
+@media (min-width: 500px) and (max-width: 1451px) {
+    .principal-texto {
+        font-size: 2.5rem; /* Ajusta o tamanho do texto para telas médias */
+        max-width: 70%; /* Limita a largura do texto */
+    }
+
+    .box {
+        width: 280px; /* Reduz a largura das caixas */
+    }
+}
+
+@media (max-width: 768px) {
+    .conteudo-box img {
+        width: 90%;  /* Ajusta a largura da imagem para dispositivos menores */
+    }
+}
+
+@media (max-width: 600px) {
+    .comentarios-container {
+        flex-direction: column; /* Empilha os comentários verticalmente */
+        align-items: center;
+    }
+}
+
+
+
+
+
+
+/* Estilo para os títulos Funcionalidades e Home  */
+h3 {
+    font-family: Georgia, serif;
+    
+}
+
+/* Estilo para os parágrafos de Funcionalidades e Home */
+p, li {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 0.9rem;
+    color: #2e3030;
+}
+
+/* Alterando as cores dos títulos do topico funcionalidades  */
+.sobre-app-box ul li:nth-child(1) strong, /* Informações Detalhadas */
+.sobre-app-box ul li:nth-child(2) strong,
+.sobre-app-box ul li:nth-child(3) strong,
+.sobre-app-box ul li:nth-child(4) strong, /* Lembretes Automáticos */
+.sobre-app-box ul li:nth-child(5) strong { /* Educação em Saúde */
+    color: #000000;  /* Cor preta para esses títulos */
+}
+
+
+/* Títulos do tópico Detalhes Vacinas*/
+h1, h2, h3, h4, h5, h6 {
+    font-family: Georgia, serif;  /* Fonte para os títulos */
+    color: #000000;  /* Cor preta para os títulos (ajuste conforme necessário) */
+}
+
+/* Textosdo tópico Detalhes Vacinas*/
+p, td, li, .vacina-table td {
+    font-family: 'Ubuntu', sans-serif;  /* Fonte para os textos */
+    font-size: 0.9rem;  /* Ajuste o tamanho da fonte se necessário */
+    color: #2e3030;  /* Cor do texto */
 }
