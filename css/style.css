@@ -600,6 +600,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Estilo para os títulos Funcionalidades e Home  */
 h3 {
     font-family: Georgia, serif;
+    
 }
 
 /* Estilo para os parágrafos de Funcionalidades e Home */
@@ -607,4 +608,13 @@ p, li {
     font-family: 'Ubuntu', sans-serif;
     font-size: 0.9rem;
     color: #2e3030;
+}
+
+/* Alterando as cores dos títulos das funcionalidades específicas */
+.sobre-app-box ul li:nth-child(1) strong, /* Informações Detalhadas */
+.sobre-app-box ul li:nth-child(2) strong,
+.sobre-app-box ul li:nth-child(3) strong,
+.sobre-app-box ul li:nth-child(4) strong, /* Lembretes Automáticos */
+.sobre-app-box ul li:nth-child(5) strong { /* Educação em Saúde */
+    color: #000000;  /* Cor preta para esses títulos */
 }
